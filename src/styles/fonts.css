@@ -4,8 +4,7 @@
   font-family: "Atkinson Hyperlegible Next";
   font-style: normal;
   font-weight: 400;
-  src: url("/blogue/fonts/atkinson-hyperlegible-next-regular.woff2")
-    format("woff2");
+  src: url("/fonts/atkinson-hyperlegible-next-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -13,8 +12,7 @@
   font-family: "Atkinson Hyperlegible Next";
   font-style: italic;
   font-weight: 400;
-  src: url("/blogue/fonts/atkinson-hyperlegible-next-italic.woff2")
-    format("woff2");
+  src: url("/fonts/atkinson-hyperlegible-next-italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -22,7 +20,7 @@
   font-family: "Atkinson Hyperlegible Next";
   font-style: normal;
   font-weight: 600;
-  src: url("/blogue/fonts/atkinson-hyperlegible-next-600.woff2") format("woff2");
+  src: url("/fonts/atkinson-hyperlegible-next-600.woff2") format("woff2");
 }
 
 @font-face {
@@ -30,8 +28,7 @@
   font-family: "Atkinson Hyperlegible Next";
   font-style: italic;
   font-weight: 600;
-  src: url("/blogue/fonts/atkinson-hyperlegible-next-600-italic.woff2")
-    format("woff2");
+  src: url("/fonts/atkinson-hyperlegible-next-600-italic.woff2") format("woff2");
 }
 
 /* === Roboto Serif ======================== */
@@ -40,7 +37,7 @@
   font-family: "Roboto Serif";
   font-style: normal;
   font-weight: 100 400;
-  src: url("/blogue/fonts/roboto-serif-400.woff2") format("woff2");
+  src: url("/fonts/roboto-serif-400.woff2") format("woff2");
 }
 
 @font-face {
@@ -48,7 +45,7 @@
   font-family: "Roboto Serif";
   font-style: normal;
   font-weight: 500 900;
-  src: url("/blogue/fonts/roboto-serif-600.woff2") format("woff2");
+  src: url("/fonts/roboto-serif-600.woff2") format("woff2");
 }
 
 @font-face {
@@ -56,7 +53,7 @@
   font-family: "Roboto Serif";
   font-style: italic;
   font-weight: 100 900;
-  src: url("/blogue/fonts/roboto-serif-600-italic.woff2") format("woff2");
+  src: url("/fonts/roboto-serif-600-italic.woff2") format("woff2");
 }
 
 /* === Source Code Pro ======================== */
@@ -65,7 +62,7 @@
   font-family: "Source Code Pro";
   font-style: normal;
   font-weight: 400;
-  src: url("/blogue/fonts/source-code-pro-regular.woff2") format("woff2");
+  src: url("/fonts/source-code-pro-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -73,7 +70,7 @@
   font-family: "Source Code Pro";
   font-style: italic;
   font-weight: 400;
-  src: url("/blogue/fonts/source-code-pro-italic.woff2") format("woff2");
+  src: url("/fonts/source-code-pro-italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -81,7 +78,7 @@
   font-family: "Source Code Pro";
   font-style: normal;
   font-weight: 600;
-  src: url("/blogue/fonts/source-code-pro-600.woff2") format("woff2");
+  src: url("/fonts/source-code-pro-600.woff2") format("woff2");
 }
 
 @font-face {
@@ -89,7 +86,7 @@
   font-family: "Source Code Pro";
   font-style: italic;
   font-weight: 600;
-  src: url("/blogue/fonts/source-code-pro-600-italic.woff2") format("woff2");
+  src: url("/fonts/source-code-pro-600-italic.woff2") format("woff2");
 }
 
 :root {

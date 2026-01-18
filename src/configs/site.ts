@@ -13,11 +13,11 @@ export interface Site {
 export const SITE: Site = {
   author: "Simon Arnold",
   desc: "Site perso de Simon Arnold - Développeur fullstack, formateur et créateur de contenu.",
-  favicon: "/blogue/favicon.svg",
+  favicon: "/favicon.svg",
   lang: "fr",
   locale: "fr-CA",
   ogImage: "/og-image.png",
-  repo: "https://github.com/heysimonarnold/blogue",
+  repo: "https://github.com/heysimonarnold/heysimonarnold.github.io",
   title: "Simon Arnold",
-  website: "https://simonarnold.ca",
+  website: "https://heysimonarnold.github.io/",
 };

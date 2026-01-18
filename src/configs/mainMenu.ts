@@ -6,18 +6,18 @@ interface MenuItem {
 export const MAIN_MENU: MenuItem[] = [
   {
     title: "Accueil",
-    href: "/blogue",
+    href: "/",
   },
   {
     title: "Blogue",
-    href: "/blogue/blogue",
+    href: "/blogue",
   },
   {
     title: "Explorations",
-    href: "/blogue/explorations",
+    href: "/explorations",
   },
   {
     title: "Recettes",
-    href: "/blogue/recettes",
+    href: "/recettes",
   },
 ];
