@@ -1,8 +1,9 @@
 ---
 // src/pages/recettes/[slug].astro
+import EditOnGitHubLink from "@/components/EditOnGitHubLink.astro";
 import RecipeMetadata from "@/components/RecipeMetadata.astro";
 import Wysiwyg from "@/components/Wysiwyg.astro";
-import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import DefaultContentLayout from "@/layouts/DefaultContentLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -23,7 +24,7 @@ const { Content } = await entry.render();
 const data = entry.data;
 ---
 
-<DefaultLayout title={data.title} type={data.type}>
+<DefaultContentLayout title={data.title} type={data.type}>
   <RecipeMetadata
     prepTime={data.prepTime}
     cookTime={data.cookTime}
@@ -32,4 +33,4 @@ const data = entry.data;
   <Wysiwyg>
     <Content />
   </Wysiwyg>
-</DefaultLayout>
+</DefaultContentLayout>

@@ -1,0 +1,44 @@
+---
+import { SITE } from "@/configs/site";
+import Edit from "@/icons/edit.svg";
+
+const slug: string = Astro.url.pathname;
+---
+
+<span class="edit-on-github">
+  <Edit />
+  <a href=`${SITE.repo}/blob/main/src/content${slug}.mdx` target="_blank">
+    <span class="text"> Modifier sur GitHub </span>
+  </a>
+</span>
+
+<style>
+  @import "@/styles/mixins/link.css";
+
+  .edit-on-github {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: var(--gutter);
+    font-size: 0.8em;
+    width: fit-content;
+  }
+
+  svg {
+    width: 1em;
+    height: auto;
+  }
+
+  a {
+    @add-mixin link;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+</style>

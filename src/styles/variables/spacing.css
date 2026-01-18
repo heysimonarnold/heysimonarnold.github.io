@@ -3,6 +3,11 @@
   --gutter: 8px;
   --gutter2: 16px;
   --gutter3: 24px;
+  --gutter4: 32px;
+  --gutter5: 40px;
+  --gutter6: 48px;
+  --gutter7: 56px;
+  --gutter8: 64px;
 
   --content-max-width: 62ch;
 }

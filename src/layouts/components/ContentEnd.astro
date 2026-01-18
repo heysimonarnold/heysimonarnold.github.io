@@ -1,0 +1,29 @@
+---
+import EditOnGitHubLink from "@/components/EditOnGitHubLink.astro";
+---
+
+<aside>
+  <div class="text-content-wrapper">
+    <EditOnGitHubLink />
+  </div>
+</aside>
+
+<style>
+  aside {
+    position: relative;
+    margin: var(--gutter7) 0 0;
+
+    &::before {
+      content: "...";
+      display: block;
+      position: absolute;
+      top: -2.25em;
+      left: 50%;
+      font-family: var(--font-mono);
+      font-size: 20px;
+      letter-spacing: 1em;
+      transform: translateX(-50%);
+      opacity: 0.2;
+    }
+  }
+</style>
