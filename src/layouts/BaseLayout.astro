@@ -7,6 +7,7 @@ import PageTitle from "@/components/PageTitle.astro";
 import FontsPreload from "./components/FontsPreload.astro";
 import ThemeScript from "./components/ThemeScript.astro";
 import HeadMeta from "./components/HeadMeta.astro";
+import GoogleAnalytics from "./components/GoogleAnalytics.astro";
 
 const { title, type, ogImage, favicon, desc } = Astro.props;
 ---
@@ -15,6 +16,7 @@ const { title, type, ogImage, favicon, desc } = Astro.props;
 <html lang={SITE.locale}>
   <head>
     <HeadMeta title={title} ogImage={ogImage} favicon={favicon} desc={desc} />
+    <GoogleAnalytics />
     <FontsPreload />
     <ThemeScript />
   </head>
