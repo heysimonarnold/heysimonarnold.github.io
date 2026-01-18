@@ -14,8 +14,7 @@ const gaKey = SITE.googleAnalyticsKey;
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', document.currentScript.key);
-      console.log(document.currentScript.key);
+      gtag('config', document.currentScript.dataset.key);
     </script>
 
     {/* Track SPA route changes */}
