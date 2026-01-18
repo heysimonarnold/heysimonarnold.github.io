@@ -11,12 +11,14 @@ const isProd = import.meta.env.PROD;
   />
 
   <script is:inline>
+    const key = `${JSON.stringify(SITE.googleAnalyticsKey)}`;
+
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
     }
     gtag("js", new Date());
-    gtag("config", SITE.googleAnalyticsKey);
+    gtag("config", key);
   </script>
 
   {/* Pour la navigation client-side d'Astro */}
