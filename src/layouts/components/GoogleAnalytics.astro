@@ -5,25 +5,28 @@ const gaKey = SITE.googleAnalyticsKey;
 ---
 
 {isProd && (
-  <>
-    {/* Load GA script */}
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaKey}`}></script>
+<>
+  {/* Load GA script */}
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaKey}`}
+  ></script>
 
-    {/* Initialize GA */}
-    <script is:inline data-key={gaKey}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', document.currentScript.dataset.key);
-    </script>
+  {/* Initialize GA */}
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", 'G-ETQ4VQTXJ2');
+  </script>
 
-    {/* Track SPA route changes */}
-    <script is:inline>
-      document.addEventListener('astro:page-load', () => {
-        if (typeof gtag === 'function') {
-          gtag('event', 'page_view', { page_path: window.location.pathname });
-        }
-      });
-    </script>
-  </>
+  {/* Track SPA route changes */}
+  <script is:inline>
+    document.addEventListener("astro:page-load", () => {
+      if (typeof gtag === "function") {
+        gtag("event", "page_view", { page_path: window.location.pathname });
+      }
+    });
+  </script>
+</>
 )}
