@@ -1,0 +1,60 @@
+---
+const { prepTime, cookTime, recipeYield } = Astro.props;
+---
+
+<div id="recipe-metadata">
+  <div class="wrapper">
+    {
+      prepTime && (
+        <span>
+          Préparation&thinsp;: <strong>{prepTime}&thinsp;min</strong>
+        </span>
+      )
+    }
+    {
+      cookTime && (
+        <span>
+          Cuisson&thinsp;: <strong>{cookTime}&thinsp;min</strong>
+        </span>
+      )
+    }
+    {
+      recipeYield && (
+        <span>
+          Portions&thinsp;: <strong>{recipeYield}</strong>
+        </span>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  #recipe-metadata {
+    box-sizing: content-box;
+    margin: 0 auto var(--gutter3);
+    max-width: var(--content-max-width);
+    width: 100%;
+
+    .wrapper {
+      column-gap: var(--gutter);
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 0.8em;
+      margin: 0 auto;
+      opacity: 0.8;
+      row-gap: var(--gutter-half);
+    }
+  }
+
+  span {
+    &::after {
+      content: "•";
+      margin: 0 var(--gutter);
+    }
+
+    &:last-child::after {
+      content: "";
+      margin: 0;
+    }
+  }
+</style>

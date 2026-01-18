@@ -1,0 +1,18 @@
+---
+import { SITE } from "@/configs/site";
+import HeadMeta from "./components/HeadMeta.astro";
+
+const { title, desc, ogImage, favicon } = Astro.props;
+---
+
+<!doctype html>
+<html lang={SITE.locale}>
+  <head>
+    <HeadMeta title={title} ogImage={ogImage} favicon={favicon} desc={desc} />
+    <slot name="head" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

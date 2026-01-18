@@ -1,0 +1,120 @@
+---
+import "./_styles/zoltar-speaks.css";
+
+import BlankLayout from "@/layouts/BlankLayout.astro";
+const meta = {
+  desc: "Zoltar speaks est un dé mécanique transformant le hasard en message venu du futur. Oserez-vous interroger votre avenir?",
+  favicon: "/explorations/zoltar-speaks/favicon.svg",
+  ogImage: "/explorations/zoltar-speaks/og-image.png",
+  title: "Zoltar speaks",
+};
+---
+
+<BlankLayout type="page" {...meta}>
+  <header>
+    <h1>Ask your question, press the button and Zoltar&nbsp;speaks!</h1>
+  </header>
+
+  <main>
+    <div id="wrapper">
+      <div id="box">
+        <div class="mechanism">
+          <button class="spin-btn"></button>
+
+          <ol class="wheel" id="wheel1">
+            <li class="option">
+              <span class="inner">Possibly</span>
+            </li>
+            <li class="option">
+              <span class="inner">Maybe</span>
+            </li>
+            <li class="option">
+              <span class="inner">Potentially</span>
+            </li>
+            <li class="option">
+              <span class="inner">Likely</span>
+            </li>
+            <li class="option">
+              <span class="inner">Probably</span>
+            </li>
+            <li class="option">
+              <span class="inner">Presumably</span>
+            </li>
+            <li class="option">
+              <span class="inner">Plausibly</span>
+            </li>
+            <li class="option">
+              <span class="inner">Almost</span>
+            </li>
+            <li class="option">
+              <span class="inner">Certainly</span>
+            </li>
+            <li class="option">
+              <span class="inner">Definitely</span>
+            </li>
+            <li class="option">
+              <span class="inner">Absolutely</span>
+            </li>
+            <li class="option">
+              <span class="inner">Unquestionably</span>
+            </li>
+          </ol>
+
+          <ol class="wheel" id="wheel2">
+            <li class="option">
+              <span class="inner">Maybe</span>
+            </li>
+            <li class="option">
+              <span class="inner">YES</span>
+            </li>
+            <li class="option">
+              <span class="inner">NO</span>
+            </li>
+            <li class="option">
+              <span class="inner">YES</span>
+            </li>
+            <li class="option">
+              <span class="inner">NO</span>
+            </li>
+            <li class="option">
+              <span class="inner">YES</span>
+            </li>
+            <li class="option">
+              <span class="inner">Ask Again</span>
+            </li>
+            <li class="option">
+              <span class="inner">NO</span>
+            </li>
+            <li class="option">
+              <span class="inner">YES</span>
+            </li>
+            <li class="option">
+              <span class="inner">NO</span>
+            </li>
+            <li class="option">
+              <span class="inner">YES</span>
+            </li>
+            <li class="option">
+              <span class="inner">NO</span>
+            </li>
+          </ol>
+        </div>
+
+        <img
+          src="/explorations/zoltar-speaks/zoltar-cover.webp"
+          alt="Zoltar Speaks"
+          class="cover"
+        />
+      </div>
+    </div>
+
+    <label id="switch">
+      X-ray vision
+      <input type="checkbox" id="switch-input" />
+    </label>
+  </main>
+
+  <script>
+    import "./_scripts/zoltar-speaks.ts";
+  </script>
+</BlankLayout>

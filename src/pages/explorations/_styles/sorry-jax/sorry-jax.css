@@ -1,0 +1,165 @@
+@import url("./jax.css");
+@import url("./scorpion.css");
+@import url("./toasty.css");
+@import url("./ui.css");
+@import url("./variables.css");
+
+@font-face {
+  font-family: "MK";
+  src: url("/explorations/sorry-jax/mortalkombat2.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #000;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-sans);
+}
+
+/* ------------------------------------------------------------------ */
+/* Scene & Scoreboard                                                  */
+/* ------------------------------------------------------------------ */
+
+.scene {
+  position: relative;
+  left: 50%;
+  height: 100vmin;
+  width: 105vw;
+  background-image: url("/explorations/sorry-jax/stage-bg.png");
+  background-position: 50% 50%;
+  background-size: auto 100%;
+  transform: translateX(-50%);
+}
+
+.scoreboard {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4vmin;
+  font-size: 4vmin;
+  color: var(--red);
+}
+
+.scoreboard .timer {
+  font-size: 1.25em;
+  text-shadow: 0.1em 0.1em 0 #000;
+}
+
+.scoreboard .text {
+  width: 100%;
+  padding-top: 0.25em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-shadow: 0.1em 0.1em 0 #000;
+}
+
+.scoreboard .no2 {
+  text-align: right;
+}
+
+.scoreboard .no2 .text {
+  color: #fff;
+  animation: fade-in 0.3s linear alternate infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/* Meter                                                               */
+/* ------------------------------------------------------------------ */
+
+.meter {
+  position: relative;
+  width: 40vw;
+  height: 5vmin;
+  background-color: var(--red);
+  background-image: linear-gradient(#bd1406, #850903);
+  border: solid #787575 0.75vmin;
+  box-shadow: inset 0 0 0 0.5vmin #5f1109;
+  font-family: var(--font-mk);
+  color: var(--yellow);
+  line-height: 1;
+  padding: 0 0.5em;
+}
+
+.meter__progress {
+  position: absolute;
+  inset: 0;
+  background-color: #00aa04;
+  box-shadow: inset 0 0 0 0.5vmin #358835;
+  transform-origin: 0 0;
+  transition: transform 0.3s;
+}
+
+.no2 .meter__progress {
+  right: 0;
+  transform-origin: 100% 0;
+}
+
+.meter__name {
+  position: relative;
+}
+
+/* ------------------------------------------------------------------ */
+/* Characters                                                          */
+/* ------------------------------------------------------------------ */
+
+.character {
+  position: absolute;
+  bottom: 1vmin;
+  background-size: 100% auto;
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations                                                          */
+/* ------------------------------------------------------------------ */
+@keyframes yellow-and-red {
+  from {
+    color: var(--yellow);
+  }
+  to {
+    color: var(--red);
+  }
+}
+
+@keyframes white-and-blue {
+  from {
+    color: #fff;
+  }
+  to {
+    color: var(--blue);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-msg {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  20%,
+  80% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,23 @@
+---
+import "./_styles/vacances.css";
+
+import BlankLayout from "@/layouts/BlankLayout.astro";
+const meta = {
+  desc: "Aille, on s'en vas-tu? Messemble qu'on serait dû pour des vacances au bord de la mer, non?",
+  favicon: "/explorations/vacances/favicon.svg",
+  ogImage: "/explorations/vacances/og-image.png",
+  title: "Vacances",
+};
+---
+
+<BlankLayout type="page" {...meta}>
+  <div class="wave"></div>
+  <div class="credits">
+    <a href="https://www.newrafael.com/">Rafaël Rozendaal</a>
+  </div>
+  <button></button>
+
+  <script>
+    import "./_scripts/vacances";
+  </script>
+</BlankLayout>

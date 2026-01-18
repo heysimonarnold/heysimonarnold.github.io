@@ -1,0 +1,672 @@
+:root {
+  --white: #fff;
+  --yellow: #f8d12b;
+  --dark-yellow: #967922;
+  --blue: #25347b;
+  --light-blue: #becad9;
+  --dark-blue: #172253;
+  --brown: #29232a;
+  --skin: #bc8c7b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #f1e9c9;
+  color: black;
+  font-family: helvetica, arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  width: fit-content;
+  font-weight: bold;
+  padding: 10px 15px 0 35px;
+
+  ul {
+    margin: 3px 0;
+    padding: 0;
+  }
+
+  li {
+    display: block;
+    padding: 3px 0;
+    font-weight: normal;
+  }
+
+  label {
+    position: relative;
+    opacity: 0.75;
+
+    &::before {
+      position: absolute;
+      left: -1.5em;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 40px);
+  transform: translate(-50%, -50%);
+  border: solid 5vmin var(--white);
+}
+
+.ref {
+  display: block;
+  background-color: #fff;
+  height: 90vmin;
+  width: auto;
+}
+
+.code {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.code {
+  opacity: 0;
+}
+.code * {
+  position: absolute;
+  background-color: red;
+}
+
+#original:checked {
+  ~ .nav label[for="original"] {
+    opacity: 1;
+
+    &::before {
+      content: "👉 ";
+    }
+  }
+}
+
+#mixed:checked {
+  ~ .wrapper {
+    .code {
+      opacity: 0.6;
+    }
+  }
+
+  ~ .nav label[for="mixed"] {
+    opacity: 1;
+
+    &::before {
+      content: "👉 ";
+    }
+  }
+}
+
+#html-css:checked {
+  ~ .wrapper {
+    .code {
+      opacity: 1;
+    }
+  }
+
+  ~ .nav label[for="html-css"] {
+    opacity: 1;
+
+    &::before {
+      content: "👉 ";
+    }
+  }
+}
+
+/* Illustration */
+
+.bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--yellow);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 26vmin;
+    height: 38vmin;
+    background-color: var(--brown);
+  }
+}
+
+.ball {
+  position: absolute;
+  top: 14%;
+  left: 13.9%;
+  width: 1.75vmin;
+  height: 1.75vmin;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.left-foot {
+  position: absolute;
+  left: 12%;
+  bottom: 22%;
+  width: 8vmin;
+  height: 8vmin;
+  border-radius: 50%;
+  background-color: var(--white);
+  background-image: radial-gradient(
+    transparent 63%,
+    var(--blue) calc(63% + 1px),
+    var(--blue) calc(63% + 2px),
+    transparent calc(63% + 3px),
+    transparent 100%
+  );
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    width: 52%;
+    height: 58%;
+    border-radius: 50%;
+    background-color: var(--blue);
+    background-image: radial-gradient(
+      transparent 53%,
+      var(--yellow) calc(53% + 1px),
+      var(--yellow) calc(53% + 2px),
+      transparent calc(53% + 3px),
+      transparent 100%
+    );
+    transform: translate(-50%, -50%);
+  }
+}
+
+.brown-circle {
+  position: absolute;
+  bottom: 24vmin;
+  left: 0;
+  width: 26vmin;
+  height: 26vmin;
+  background-color: var(--brown);
+  border-radius: 50%;
+}
+
+.bat {
+  top: 1.5vmin;
+  right: 0;
+  width: 66.6%;
+  height: 32%;
+  background-color: transparent;
+  overflow: hidden;
+
+  .dark {
+    top: 0;
+    left: 0.5%;
+    width: 103%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background-color: var(--brown);
+  }
+
+  .swing {
+    top: 9.25vmin;
+    left: 2.5vmin;
+    width: 70.5%;
+    height: 0;
+    padding-bottom: 71%;
+    border-radius: 50%;
+    background-color: var(--light-blue);
+  }
+}
+
+.lower-zone,
+.upper-zone {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 54%;
+  clip-path: polygon(51% 0, 100% 0, 100% 100%, 0 100%, 0 83.5%);
+}
+
+.lower-forearm {
+  top: 31.75%;
+  left: 35%;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  background-color: var(--blue);
+  clip-path: polygon(50% 0, 120% 0, 60% 35%, 0 10%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    width: 63%;
+    height: 63%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--yellow);
+  }
+}
+
+.lower-zone {
+  background-color: var(--light-blue);
+}
+
+.upper-zone {
+  background-color: transparent;
+
+  .upperleg {
+    width: 28vmin;
+    height: 28vmin;
+    border-radius: 50%;
+    bottom: 67.25%;
+    right: 45%;
+    background-color: var(--light-blue);
+    background-image: linear-gradient(
+      -217deg,
+      transparent 82%,
+      var(--blue) 100%
+    );
+    overflow: hidden;
+
+    .shadow {
+      left: 87.5%;
+      width: 40vmin;
+      height: 40vmin;
+      border-radius: 50%;
+      background-color: var(--blue);
+    }
+  }
+
+  .lowerleg {
+    width: 26vmin;
+    height: 26vmin;
+    border-radius: 50%;
+    bottom: 49.5%;
+    right: 59.25%;
+    background-color: var(--light-blue);
+    background-image: linear-gradient(
+      -229deg,
+      transparent 82%,
+      var(--blue) 100%
+    );
+    overflow: hidden;
+
+    .stripe {
+      top: 70%;
+      right: 20%;
+      width: 13vmin;
+      height: 13vmin;
+      border-radius: 50%;
+      background-color: var(--blue);
+      border: solid 2px var(--yellow);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 57%;
+        left: 44%;
+        width: 30%;
+        height: 30%;
+        border-radius: 50%;
+        background-color: var(--light-blue);
+        transform: translate(-50%, -50%);
+        border: solid 2px var(--yellow);
+      }
+    }
+  }
+}
+
+.biceps-wrapper {
+  top: 29.5%;
+  left: 46%;
+  width: 7.75vmin;
+  height: 10vmin;
+  background-color: transparent;
+  border-radius: 3.875vmin 3.875vmin 0 0;
+  overflow: hidden;
+
+  .sleeve {
+    position: absolute;
+    top: 38%;
+    left: 69%;
+    width: 16vmin;
+    height: 16vmin;
+    border-radius: 50%;
+    background-color: var(--blue);
+    transform: translate(0, -45%);
+  }
+}
+
+.biceps {
+  top: 0;
+  left: 0;
+  width: 7.75vmin;
+  height: 7.75vmin;
+  border-radius: 50%;
+  background-color: var(--skin);
+  overflow: hidden;
+}
+
+.big-blue {
+  top: 28.5%;
+  left: 50%;
+  width: 41vmin;
+  height: 41vmin;
+  background-color: var(--blue);
+  border-radius: 50%;
+  overflow: hidden;
+
+  .yellow {
+    width: 9.3vmin;
+    height: 9.3vmin;
+    border-radius: 50%;
+    top: 26.25%;
+    left: 21.75%;
+    background-color: var(--yellow);
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: 0;
+      width: 120%;
+      height: 120%;
+      background-image: radial-gradient(
+        transparent 45%,
+        var(--dark-yellow) 100%
+      );
+    }
+  }
+
+  .butt {
+    top: 36.25%;
+    left: -1.6vmin;
+    width: 11.875vmin;
+    height: 11.875vmin;
+    background-color: var(--light-blue);
+    background-image: radial-gradient(
+      transparent calc(63% - 5px),
+      var(--blue) calc(63% - 4px),
+      var(--blue) calc(63% - 3px),
+      transparent calc(63% - 2px),
+      var(--yellow) calc(63% - 1px),
+      transparent 63%,
+      var(--blue) calc(63% + 1px),
+      var(--blue) calc(63% + 2px),
+      transparent calc(63% + 3px),
+      transparent 100%
+    );
+    border-radius: 50%;
+  }
+
+  .upperleg {
+    top: 52.5%;
+    left: -6vmin;
+    width: 14.5vmin;
+    height: 14.5vmin;
+    background-color: var(--light-blue);
+    background-image: radial-gradient(
+      transparent calc(63% - 5px),
+      var(--blue) calc(63% - 4px),
+      var(--blue) calc(63% - 3px),
+      transparent calc(63% - 2px),
+      var(--yellow) calc(63% - 1px),
+      transparent 63%,
+      var(--blue) calc(63% + 1px),
+      var(--blue) calc(63% + 2px),
+      transparent calc(63% + 3px),
+      transparent 100%
+    );
+    border-radius: 50%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4.75%;
+      left: 71%;
+      width: 11.875vmin;
+      height: 11.875vmin;
+      transform: translate(-50%, -50%) scale(0.84);
+      border-radius: 50%;
+      background-color: var(--blue);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -4.75%;
+      left: 71%;
+      width: 11.875vmin;
+      height: 11.875vmin;
+      transform: translate(-50%, -50%) scale(0.8);
+      border-radius: 50%;
+      background-color: var(--light-blue);
+    }
+  }
+
+  .lowerleg {
+    top: 83.25%;
+    left: -1.54vmin;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    background-color: var(--light-blue);
+    border-radius: 50%;
+    overflow: hidden;
+
+    .stripes {
+      position: absolute;
+      bottom: 68%;
+      left: 8%;
+      width: 41vmin;
+      height: 41vmin;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: transparent;
+      background-image: radial-gradient(
+        transparent calc(65.5% - 5px),
+        var(--blue) calc(65.5% - 4px),
+        var(--blue) calc(65.5% - 3px),
+        transparent calc(65.5% - 2px),
+        var(--yellow) calc(65.5% - 1px),
+        transparent 65.5%,
+        var(--blue) calc(65.5% + 1px),
+        var(--blue) calc(65.5% + 2px),
+        transparent calc(65.5% + 3px),
+        transparent 100%
+      );
+    }
+  }
+}
+
+.shoulder {
+  top: 28.5%;
+  left: 58%;
+  width: 11.1vmin;
+  height: 11.1vmin;
+  border-radius: 50%;
+  background-color: var(--blue);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -20%;
+    width: 120%;
+    height: 120%;
+    background-image: radial-gradient(transparent 40%, var(--dark-blue) 100%);
+  }
+}
+
+.yellow-upperleg {
+  top: 52.5%;
+  left: 40.5%;
+  width: 14.5vmin;
+  height: 14.5vmin;
+  border-radius: 50%;
+  background-color: var(--yellow);
+}
+
+.yellow-shoe {
+  bottom: 9vmin;
+  right: 12vmin;
+  width: 21.3vmin;
+  height: 21.3vmin;
+  background-color: var(--yellow);
+  border-radius: 50%;
+}
+
+.right-shoe {
+  width: 11vmin;
+  height: 11vmin;
+  border-radius: 50%;
+  bottom: 18.75vmin;
+  right: 7.75vmin;
+  background-color: var(--white);
+  background-image: radial-gradient(
+    var(--white) 63%,
+    var(--blue) calc(63% + 1px),
+    var(--blue) calc(63% + 2px),
+    var(--white) calc(63% + 3px),
+    var(--white) 100%
+  );
+}
+
+.head {
+  top: 21.75%;
+  left: 61.75%;
+  width: 7.75vmin;
+  height: 7.75vmin;
+  border-radius: 50%;
+  background-color: var(--yellow);
+
+  .cap-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12.5vmin;
+    height: 2.3vmin;
+    transform: translate(-72%, 0);
+    background-color: transparent;
+    overflow: hidden;
+  }
+
+  .cap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16vmin;
+    height: 16vmin;
+    border-radius: 50%;
+    background-color: transparent;
+    border: solid 2px var(--brown);
+  }
+
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      background-color: var(--blue);
+    }
+
+    .light-blue {
+      position: absolute;
+      top: 0%;
+      right: 10%;
+      width: 20%;
+      height: 20%;
+      background-color: var(--light-blue);
+    }
+  }
+
+  .face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16vmin;
+    height: 16vmin;
+    border-radius: 50%;
+    background-color: var(--skin);
+    transform: translate(-55%, 0);
+    overflow: hidden;
+  }
+
+  .hair {
+    position: absolute;
+    right: 25%;
+    top: -12%;
+    width: 3.2vmin;
+    height: 3.2vmin;
+    border-radius: 50%;
+    background-color: var(--brown);
+  }
+
+  .back-hair {
+    position: absolute;
+    bottom: 9%;
+    right: 3.25%;
+    width: 2.35vmin;
+    height: 2.35vmin;
+    border-radius: 50%;
+    background-color: var(--brown);
+  }
+}
+
+.hands {
+  top: 28.75%;
+  left: 34.75%;
+  width: 5vmin;
+  height: 5vmin;
+  border-radius: 50%;
+  background-color: var(--white);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: var(--blue);
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,78 @@
+---
+import type { PageListingItem } from "@/configs/pageListing";
+
+type Props = {
+  basePath: string;
+  items: PageListingItem[];
+  multiColumn?: boolean;
+};
+
+const { basePath, items, multiColumn = false } = Astro.props as Props;
+---
+
+<ul class:list={["listing", { "listing--columns": multiColumn }]}>
+  {
+    items.map((item) => (
+      <li>
+        {item.date && (
+          <time datetime={item.date.toISOString()}>
+            {item.date.toLocaleDateString("fr-CA").replace(/-/g, ".")}
+          </time>
+        )}
+        {/* Le div ne sert qu'à éviter que le layout flex entre en conflit
+            avec les style du lien  */}
+        <div>
+          <a href={`${basePath}/${item.slug}`}>{item.title}</a>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  @import "@/styles/mixins/link.css";
+
+  .listing {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .listing--columns {
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gutter-half);
+    align-items: flex-start;
+  }
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: var(--gutter);
+  }
+
+  time {
+    font-size: 0.8em;
+    font-family: var(--font-mono);
+    opacity: 0.8;
+  }
+
+  a {
+    @add-mixin link;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+</style>

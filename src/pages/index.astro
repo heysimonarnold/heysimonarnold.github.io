@@ -1,16 +1,38 @@
 ---
+import PageListing from "@/components/PageListing.astro";
+import Wysiwyg from "@/components/Wysiwyg.astro";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { getCollection, getEntry } from "astro:content";
 
+const entry = await getEntry("autres", "accueil");
+
+// Fetch collection
+const entries = await getCollection("blogue");
+
+if (!entry)
+  throw new Error("Le fichier src/content/accueil.mdx n'a pas été trouvé");
+
+const { Content } = await entry.render();
+
+// Sort by date (descending) and take latest 10
+const latest = entries
+  .filter((entry) => entry.data.dateCreated)
+  .sort((a, b) => b.data.dateCreated.valueOf() - a.data.dateCreated.valueOf())
+  .slice(0, 5);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<DefaultLayout title="Simon Arnold" type="website">
+  <Wysiwyg>
+    <h2>Billets récents</h2>
+    <PageListing
+      basePath="/blogue"
+      items={latest.map((entry) => ({
+        title: entry.data.title,
+        slug: entry.slug,
+        date: entry.data.dateCreated,
+      }))}
+    />
+
+    <Content />
+  </Wysiwyg>
+</DefaultLayout>

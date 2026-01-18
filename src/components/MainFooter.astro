@@ -1,0 +1,75 @@
+---
+import { SITE } from "@/configs/site";
+import { SOCIAL_NETWORKS } from "@/configs/socialNetworks";
+
+const socialNetworks = SOCIAL_NETWORKS.filter((s) => s.active && s.icon); // On enlève les réseaux inactifs ou sans icône
+---
+
+<footer id="main-footer">
+  <div class="wrapper">
+    <nav id="social-networks" aria-label="Réseaux sociaux">
+      <ul>
+        {
+          socialNetworks.map((social) => {
+            const { href, linkTitle, icon: Icon, label } = social;
+
+            return (
+              <li>
+                <a
+                  class="icon-button"
+                  href={href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  title={linkTitle}
+                >
+                  <Icon
+                    aria-hidden="true"
+                    focusable="false"
+                    height={24}
+                    width={24}
+                  />
+                  <span class="sr-only">{label}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <p>
+      ©&nbsp;2019-{new Date().getFullYear()}
+      {SITE.author}. Tous droits réservés.
+    </p>
+  </div>
+</footer>
+
+<style>
+  #main-footer {
+    display: block;
+    font-size: calc(1em - 4px);
+    grid-area: main-footer;
+    padding: var(--gutter3);
+    position: relative;
+    width: 100%;
+
+    .wrapper {
+      align-items: center;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  #social-networks {
+    flex: 0 0 auto;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      width: fit-content;
+      gap: var(--gutter2);
+    }
+  }
+</style>

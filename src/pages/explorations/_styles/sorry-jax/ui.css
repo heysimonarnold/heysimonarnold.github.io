@@ -1,0 +1,113 @@
+/* --- Instructions ------------------------------------------- */
+.instructions {
+  position: fixed;
+  inset: 0;
+  background-color: #323033;
+  background-image: url("/explorations/sorry-jax/marble-texture.jpg");
+  background-size: cover;
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 0.3s;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90vmin;
+    max-width: 400px;
+    transform: translate(-50%, -50%);
+    border: solid 1vmin #191919;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  &.instructions--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (hover: hover) {
+  .instructions .mobile {
+    display: none;
+  }
+
+  .instructions .desktop {
+    display: block;
+  }
+}
+
+/* --- Messages ------------------------------------------- */
+.msg {
+  position: absolute;
+  top: 20vmin;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-mk);
+  font-size: 8vmin;
+  color: var(--yellow);
+  text-transform: uppercase;
+  transform: scale(0);
+  text-shadow: 1vmin 1vmin 1vmin #000;
+
+  .big {
+    font-size: 15vmin;
+  }
+
+  .round-1,
+  .round-2,
+  .fight,
+  .finish-him,
+  .scorpion-wins {
+    display: none;
+  }
+}
+
+.show-round-1 .msg .round-1,
+.show-round-2 .msg .round-2,
+.show-fight .msg .fight,
+.show-finish-him .msg .finish-him,
+.show-win .msg .scorpion-wins {
+  display: block;
+}
+
+.show-fight .msg .fight,
+.show-finish-him .msg .finish-him {
+  animation: yellow-and-red 0.2s infinite alternate linear;
+}
+
+.show-win .msg .scorpion-wins {
+  animation: white-and-blue 0.2s infinite alternate linear;
+}
+
+.show-msg .msg {
+  animation: show-msg 1.5s linear;
+}
+
+/* Tokens */
+.round-wons {
+  display: flex;
+  margin: 1.5vmin 0;
+  gap: 0.2vmin;
+
+  .round-wons__token {
+    display: none;
+    width: 4vmin;
+  }
+}
+
+.round-wons-1 {
+  .round-wons__token--1 {
+    display: block;
+  }
+}
+
+.round-wons-2 {
+  .round-wons__token--1,
+  .round-wons__token--2 {
+    display: block;
+  }
+}

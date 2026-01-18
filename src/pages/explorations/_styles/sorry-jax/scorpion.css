@@ -1,0 +1,61 @@
+.scorpion {
+  left: 50%;
+  height: var(--scorpion-height);
+  aspect-ratio: 18 / 25;
+  background-image: url("/explorations/sorry-jax/scorpion-spritesheet.webp"); /* Voir le folder public */
+  transform: translateX(-50%);
+  animation: idle 0.8s steps(6) infinite;
+  z-index: 1;
+}
+
+.scorpion--left {
+  transform: translateX(-50%) scaleX(-1);
+}
+
+.scorpion--crouch {
+  animation: crouch 0.1s steps(2) forwards;
+}
+
+.scorpion--uppercut {
+  animation: uppercut 0.4s steps(6) forwards;
+}
+
+.scorpion--win {
+  animation: win 0.4s steps(2) forwards;
+}
+
+@keyframes idle {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 calc(-6 * var(--scorpion-height));
+  }
+}
+
+@keyframes crouch {
+  from {
+    background-position: 0 calc(-5 * var(--scorpion-height));
+  }
+  to {
+    background-position: 0 calc(-6 * var(--scorpion-height));
+  }
+}
+
+@keyframes uppercut {
+  from {
+    background-position: 0 calc(-7 * var(--scorpion-height));
+  }
+  to {
+    background-position: 0 calc(-13 * var(--scorpion-height));
+  }
+}
+
+@keyframes win {
+  from {
+    background-position: 0 calc(-13 * var(--scorpion-height));
+  }
+  to {
+    background-position: 0 calc(-15 * var(--scorpion-height));
+  }
+}

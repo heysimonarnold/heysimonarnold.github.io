@@ -1,0 +1,35 @@
+---
+// src/pages/recettes/[slug].astro
+import RecipeMetadata from "@/components/RecipeMetadata.astro";
+import Wysiwyg from "@/components/Wysiwyg.astro";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const collection = await getCollection("recettes");
+
+  return collection.map((entry) => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const collection = await getCollection("recettes");
+const slug = Astro.params.slug;
+const entry = collection.find((e) => e.slug === slug);
+
+if (!entry) throw new Error(`Recette non-trouvée 🤷‍♂️: ${slug}`);
+
+const { Content } = await entry.render();
+const data = entry.data;
+---
+
+<DefaultLayout title={data.title} type={data.type}>
+  <RecipeMetadata
+    prepTime={data.prepTime}
+    cookTime={data.cookTime}
+    recipeYield={data.recipeYield}
+  />
+  <Wysiwyg>
+    <Content />
+  </Wysiwyg>
+</DefaultLayout>

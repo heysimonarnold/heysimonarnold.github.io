@@ -1,0 +1,24 @@
+.dan-forden {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 23vmin;
+  height: 23vmin;
+  background-image: url("/explorations /sorry-jax/dan-forden.webp");
+  background-size: contain;
+  transform: translateX(101%);
+  z-index: 2;
+}
+
+.toasty .dan-forden {
+  animation: toasty 0.3s alternate 2;
+}
+
+@keyframes toasty {
+  from {
+    transform: translateX(101%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

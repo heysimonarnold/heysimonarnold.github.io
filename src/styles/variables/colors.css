@@ -1,0 +1,43 @@
+:root {
+  /* 
+  Je voulais m'inspirer des couleurs de base disponibles en CSS: blue, yellow, etc. 
+  Cependant, elles sont un peu violentes 😅 Donc j'ai utilisé la variation proposée 
+  par Colors - A nicer palette for the web https://clrs.cc/
+  */
+
+  /* === Action ================================== */
+  --action-hue: 208;
+  --action-saturation: 100%;
+
+  --action-lower: hsl(var(--action-hue), var(--action-saturation), 63%);
+  --action-low: hsl(var(--action-hue), var(--action-saturation), 53%);
+  --action: hsl(var(--action-hue), var(--action-saturation), 43%);
+  --action-high: hsl(var(--action-hue), var(--action-saturation), 33%);
+  --action-higher: hsl(var(--action-hue), var(--action-saturation), 23%);
+
+  /* === Focus ================================= */
+  --focus-hue: 314;
+  --focus-saturation: 88%;
+
+  --focus-lower: hsl(var(--focus-hue), var(--focus-saturation), 71%);
+  --focus-low: hsl(var(--focus-hue), var(--focus-saturation), 61%);
+  --focus: hsl(var(--focus-hue), var(--focus-saturation), 51%);
+  --focus-high: hsl(var(--focus-hue), var(--focus-saturation), 41%);
+  --focus-higher: hsl(var(--focus-hue), var(--focus-saturation), 31%);
+
+  /* === Emphasis ================================= */
+  --emphasis-hue: 153;
+  --emphasis-saturation: 43%;
+
+  --emphasis-lower: hsl(var(--emphasis-hue), var(--emphasis-saturation), 63%);
+  --emphasis-low: hsl(var(--emphasis-hue), var(--emphasis-saturation), 53%);
+  --emphasis: hsl(var(--emphasis-hue), var(--emphasis-saturation), 43%);
+  --emphasis-high: hsl(var(--emphasis-hue), var(--emphasis-saturation), 33%);
+  --emphasis-higher: hsl(var(--emphasis-hue), var(--emphasis-saturation), 23%);
+}
+
+[data-theme="dark"] {
+  --action-saturation: 70%;
+  --focus-saturation: 58%;
+  --emphasis-saturation: 33%;
+}

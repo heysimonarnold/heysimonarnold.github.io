@@ -1,14 +1,29 @@
 {
-  "name": "",
+  "name": "simon-arnold-blog",
   "type": "module",
   "version": "0.0.1",
+  "description": "Blog de Simon Arnold - Développement web, tutoriels et plus.",
+  "author": "Simon Arnold <heysimonarnold@gmail.com>",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
     "astro": "^5.16.6"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.6",
+    "postcss-custom-media": "^11.0.6",
+    "postcss-custom-media-generator": "^1.1.0",
+    "postcss-mixins": "^12.1.2",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.6.0",
+    "prettier": "^3.7.4",
+    "remark-directive": "^4.0.0",
+    "typescript": "^5.9.3"
   }
 }

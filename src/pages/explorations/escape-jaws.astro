@@ -1,0 +1,70 @@
+---
+import "./_styles/escape-jaws.css";
+
+import BlankLayout from "@/layouts/BlankLayout.astro";
+const meta = {
+  desc: "Escape Jaws est un jeu sonore où l’ouïe devient instinct de survie. Guidé par des signaux invisibles, tentez d’échapper au requin mythique, une présence tapie dans l’ombre, prête à vous dévorez au moindre faux pas.",
+  favicon: "/explorations/escape-jaws/favicon.svg",
+  ogImage: "/explorations/escape-jaws/og-image.png",
+  title: "Escape Jaws",
+};
+---
+
+<BlankLayout type="page" {...meta}>
+  <main class="game">
+    <section class="board">
+      <div class="jaws">
+        <div class="sprite"></div>
+      </div>
+
+      <div class="timer"></div>
+    </section>
+
+    <section class="popup popup--intro">
+      <h1 class="popup__title">Escape Jaws</h1>
+      <p>
+        Move your cursor around the screen to avoid getting caught by Jaws! But
+        be careful! It swims under the&nbsp;surface.
+      </p>
+
+      <p>
+        🔊 <em
+          >Make sure you turn your audio on before playing, so you know where it
+          comes&nbsp;from!</em
+        >
+      </p>
+
+      <div class="popup__btns">
+        <button class="btn start">Start Game</button>
+      </div>
+
+      <img
+        src="/explorations/escape-jaws/img/intro-footer.jpg"
+        class="popup__footer"
+      />
+    </section>
+
+    <section class="popup popup--outro">
+      <h1 class="popup__title">Escape Jaws</h1>
+      <p>You survived <strong class="popup__duration">XX:XX</strong></p>
+
+      <div class="popup__btns">
+        <button class="btn replay">Play again</button>
+      </div>
+
+      <img
+        src="/explorations/escape-jaws/img/intro-footer.jpg"
+        class="popup__footer"
+      />
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" is:inline
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+    is:inline></script>
+  <script>
+    import "./_scripts/escape-jaws/escape-jaws";
+  </script>
+</BlankLayout>

@@ -1,0 +1,63 @@
+@import "./mixins/link.css";
+
+.wysiwyg {
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  > h2:not(:first-child) {
+    position: relative;
+    margin: 1.75em 0 0.8em;
+
+    &::before {
+      content: "...";
+      display: block;
+      position: absolute;
+      top: -2.25em;
+      left: 50%;
+      font-family: var(--font-mono);
+      font-size: 20px;
+      letter-spacing: 1em;
+      transform: translateX(-50%);
+      opacity: 0.2;
+    }
+  }
+
+  a:not(.lty-playbtn, .logo-link) {
+    @add-mixin link;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  blockquote {
+    opacity: 0.8;
+    font-size: 0.9em;
+    font-family: var(--font-heading);
+  }
+
+  & > p:first-child,
+  & > h2 + p {
+    text-indent: 2.5em;
+  }
+
+  ul,
+  ol {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    row-gap: var(--gutter);
+  }
+
+  img,
+  video {
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+  }
+}

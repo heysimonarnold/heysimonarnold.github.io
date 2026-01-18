@@ -1,0 +1,10 @@
+:root {
+  --scorpion-height: 65vmin;
+
+  --red: #a20001;
+  --yellow: #fdf112;
+  --blue: #1d15ff;
+
+  --font-mk: "MK";
+  --font-sans: "Nova Square", helvetica, arial, sans-serif;
+}

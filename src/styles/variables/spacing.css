@@ -1,0 +1,8 @@
+:root {
+  --gutter-half: 4px;
+  --gutter: 8px;
+  --gutter2: 16px;
+  --gutter3: 24px;
+
+  --content-max-width: 62ch;
+}

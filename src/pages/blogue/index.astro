@@ -1,0 +1,27 @@
+---
+import PageListing from "@/components/PageListing.astro";
+import type { PageListingItem } from "@/configs/pageListing";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import { getCollection } from "astro:content";
+
+const collection = await getCollection("blogue");
+
+// Optional: filter by top-level (no `/` in slug) if you want folder separation
+const topLevelEntries = collection.filter((e) => !e.slug.includes("/"));
+
+const items: PageListingItem[] = topLevelEntries
+  .sort(
+    (a, b) =>
+      new Date(b.data.dateCreated).getTime() -
+      new Date(a.data.dateCreated).getTime()
+  )
+  .map((entry) => ({
+    title: entry.data.title,
+    slug: entry.slug,
+    date: entry.data.dateCreated,
+  }));
+---
+
+<DefaultLayout title="Blogue" type="page">
+  <PageListing basePath="/blogue" items={items} />
+</DefaultLayout>

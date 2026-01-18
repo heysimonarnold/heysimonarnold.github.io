@@ -1,0 +1,36 @@
+---
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import PageListing from "@/components/PageListing.astro";
+import type { PageListingItem } from "@/configs/pageListing";
+
+const items: PageListingItem[] = [
+  {
+    title: "Battalgazi - Yeli",
+    slug: "battalgazi-yeli",
+  },
+  {
+    title: "Cassette Micro Mages",
+    slug: "cassette-micro-mages",
+  },
+  {
+    title: "Escape Jaws",
+    slug: "escape-jaws",
+  },
+  {
+    title: "Sorry Jax!",
+    slug: "sorry-jax",
+  },
+  {
+    title: "Vacances",
+    slug: "vacances",
+  },
+  {
+    title: "Zoltar speaks",
+    slug: "zoltar-speaks",
+  },
+];
+---
+
+<DefaultLayout title="Explorations" type="page">
+  <PageListing basePath="/explorations" items={items} />
+</DefaultLayout>

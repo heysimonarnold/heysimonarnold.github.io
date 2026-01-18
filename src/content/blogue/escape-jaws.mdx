@@ -1,0 +1,26 @@
+---
+title: Escape Jaws
+dateCreated: 2022-03-17
+---
+
+En marchant un soir, j’écoutais un balado qui racontait les péripéties du tournage du film **Les dents de la mer**. Une anecdote en particulier m’a marquée: [l’animatronique du requin n’arrêtait pas de brisé, ce qui a forcé Spielberg à l’exclure de plusieurs scènes](https://www.youtube.com/shorts/dJUG9mStL74). Cette contrainte lui a fait prendre conscience que suggérer la présence du requin à l'aide de la trame sonore et de jeux d'angles de caméra, était en fait plus terrifiant que de le montrer directement.
+
+Inspiré par ce flash, j’ai créé [Escape Jaws](/explorations/escape-jaws): un jeu minimaliste où on ne voit qu’un écran bleu représentant l’océan. Le joueur sait que le requin rôde sous la surface et qu’il doit l’éviter, mais il lui est impossible de le voir. Il doit donc se fier uniquement à la trame sonore pour survivre. 
+
+La direction de celle-ci indique d'où la menace provient, tandis que son intensité révèle la distance séparant le joueur du requin. À partir de ces indices, le joueur doit ajuster en permanence la position de son curseur pour éviter de finir dévoré.
+
+🎧 Pour une expérience optimale, l’utilisation d’écouteurs est fortement recommandée.
+
+## Aspect technique
+
+Ce projet a été développé en JavaScript vanille, sans l'aide d'**aucun cadriciel** _(React, Vue, etc. 🙅‍♂️)_. 
+
+Il est initalement né sur **CodePen** où il a été [repéré _(picked)_ par son équipe de curateurs](https://blog.codepen.io/documentation/faq/how-are-picked-pens-chosen/) et mis de l'avant par celle-ci afin de pouvoir inspirer la communauté par son originalité.
+
+La librairie [howler.js](https://howlerjs.com/) est utilisée pour gérer la trame sonore. Elle permet de faire jouer plusieurs pistes simultanément, tout en ajustant dynamiquement leur volume et leur spatialisation. Cette particularité permet de moduler constamment l’intensité sonore du jeu, contribuant ainsi à faire monter, ou redescendre, le suspense.
+
+La librairie [GSAP](https://gsap.com/), quant à elle, est utilisée pour permettre à Jaws d’ajuster sa trajectoire vers le curseur du joueur de manière plus fluide. Oui, j’ai bel et bien utilisé une librairie d’animations pour adoucir le calcul d’une trajectoire 😆.
+
+## Les lauriers de césars
+
+Je dois rendre hommage au jeu [Find the Invisible Cow](https://findtheinvisiblecow.com/) qui repose sur une mécanique similaire, mais inversée. Soit déplacer un curseur pour **trouver une vache** invisible 🐮, plutôt que pour **éviter un requin** invisible 🦈.

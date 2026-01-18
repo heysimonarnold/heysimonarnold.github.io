@@ -1,0 +1,35 @@
+---
+import Moon from "@/icons/moon.svg";
+import Sun from "@/icons/sun.svg";
+---
+
+<button
+  class="icon-button"
+  id="theme-toggle"
+  type="button"
+  aria-label="Faire basculer le thème"
+>
+  <Sun class="icon-light" />
+  <Moon class="icon-dark" />
+</button>
+
+<script>
+  const LIGHT_THEME_SFX = new Audio("/sounds/shine-bright-like-a-diamonds.ogg");
+  const DARK_THEME_SFX = new Audio("/sounds/hello-darkness.mp3");
+
+  const button = document.getElementById("theme-toggle");
+
+  button?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const current = root.dataset.theme === "dark" ? "light" : "dark";
+    current === "light" ? LIGHT_THEME_SFX.play() : DARK_THEME_SFX.play();
+    root.dataset.theme = current;
+    localStorage.setItem("theme", current);
+  });
+</script>
+
+<style>
+  .icon-dark {
+    transform: scale(0.9);
+  }
+</style>

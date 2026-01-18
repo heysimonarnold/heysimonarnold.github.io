@@ -1,0 +1,87 @@
+.checklist {
+  counter-reset: checklist-item;
+  list-style: none;
+  padding: 0;
+
+  /* Checked state */
+  input:checked + .checklist__icon {
+    background-color: var(--action-lower);
+
+    svg {
+      opacity: 1;
+    }
+  }
+}
+
+.wysiwyg .checklist {
+  padding: 0; /* Cancel the default wysiwyg padding */
+}
+
+/* Number for unchecked items in ordered list only */
+ol.checklist .checklist__icon {
+  &::before {
+    content: counter(checklist-item);
+    font-size: 1rem;
+    opacity: 1;
+    transform: scale(0.75);
+  }
+
+  svg {
+    display: none;
+  }
+}
+
+ul.checklist .checklist__icon {
+  svg {
+    display: block;
+    opacity: 0;
+  }
+}
+
+.checklist__item {
+  align-items: baseline;
+  counter-increment: checklist-item;
+  cursor: pointer;
+  display: inline-flex;
+  gap: var(--gutter);
+
+  &:hover,
+  &:focus-within {
+    .checklist__icon {
+      background-color: color-mix(in hsl, currentColor, transparent 80%);
+    }
+
+    input:checked + .checklist__icon {
+      background-color: var(--action-low);
+    }
+  }
+
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+}
+
+/* Icon next to each item */
+.checklist__icon {
+  align-items: center;
+  background-color: color-mix(in hsl, currentColor, transparent 90%);
+  border-radius: var(--radius2);
+  display: flex;
+  flex: 0 0 1.2rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  height: 1.2rem;
+  justify-content: center;
+  position: relative;
+  width: 1.2rem;
+
+  /* SVG checkmark inside icon */
+  svg {
+    height: 0.8em;
+    opacity: 1;
+    stroke-width: 1;
+    stroke: currentColor;
+    width: 0.8em;
+  }
+}

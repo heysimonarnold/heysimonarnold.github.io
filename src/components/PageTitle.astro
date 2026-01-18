@@ -1,0 +1,101 @@
+---
+const { title } = Astro.props;
+const slug: string = Astro.url.pathname;
+const parts = slug.split("/");
+const breadcrumbs: { title: string; link: string }[] = [];
+let currentPath = "";
+
+parts.forEach((part) => {
+  if (part) {
+    currentPath += `/${part}`;
+    breadcrumbs.push({
+      title: part,
+      link: `${currentPath}`,
+    });
+  }
+});
+---
+
+{
+  title && (
+    <header class="text-content-wrapper">
+      {/* Breadcrumb */}
+      <nav aria-label="breadcrumb">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          {breadcrumbs.map(({ link, title }, index) => (
+            <li
+              itemprop="itemListElement"
+              itemscope
+              itemtype="https://schema.org/ListItem"
+            >
+              {index < breadcrumbs.length - 1 ? (
+                <a itemprop="name" href={link}>
+                  {title}
+                </a>
+              ) : (
+                <strong itemprop="name" aria-current="page">
+                  {title}
+                </strong>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      {/* Title */}
+      <h1 itemprop="name">{title}</h1>
+    </header>
+  )
+}
+
+<style>
+  @import "@/styles/mixins/link.css";
+
+  header {
+    align-items: center;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--gutter3);
+    row-gap: var(--gutter-half);
+  }
+
+  nav {
+    font-size: 0.8em;
+
+    ol {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      /* Hide last breadcrumb item (current page) */
+      &:last-child {
+        display: none;
+      }
+
+      &:not(:nth-last-child(-n + 2))::after {
+        content: "›";
+        display: inline-block;
+        margin: 0 0 0 0.5em;
+      }
+    }
+
+    a {
+      @add-mixin link;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  @media (--lg) {
+    header {
+      margin-top: var(--gutter3);
+    }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import "./_styles/sorry-jax/sorry-jax.css";
+
+import BlankLayout from "@/layouts/BlankLayout.astro";
+const meta = {
+  desc: "Sorry Jax est un exutoire brutal inspiré de Mortal Kombat II. À chaque uppercut, la colère se libère, le corps se souvient et la rage trouve enfin sa sortie.",
+  favicon: "/explorations/sorry-jax/favicon.svg",
+  ogImage: "/explorations/sorry-jax/og-image.png",
+  title: "Sorry Jax",
+};
+---
+
+<BlankLayout type="page" {...meta}>
+  <div class="instructions">
+    <img src="/explorations/sorry-jax/mobile-instructions.jpg" class="mobile" />
+    <img
+      src="/explorations/sorry-jax/desktop-instructions.jpg"
+      class="desktop"
+    />
+  </div>
+
+  <div class="scene">
+    <div class="scoreboard">
+      <div class="player no1">
+        <div class="text">
+          <span class="wins">00</span>
+          wins
+        </div>
+
+        <div class="meter">
+          <div class="meter__progress"></div>
+          <span class="meter__name">Scorpion</span>
+        </div>
+
+        <div class="round-wons">
+          <img
+            src="/explorations/sorry-jax/round-token.png"
+            class="round-wons__token round-wons__token--1"
+          />
+          <img
+            src="/explorations/sorry-jax/round-token.png"
+            class="round-wons__token round-wons__token--2"
+          />
+        </div>
+      </div>
+
+      <div class="timer">99</div>
+
+      <div class="player no2">
+        <div class="text">Push start</div>
+        <div class="meter">
+          <div class="meter__progress"></div>
+          <span class="meter__name">Jax</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="round-1">Round 1</div>
+      <div class="round-2">Round 2</div>
+      <div class="fight big">Fight</div>
+      <div class="finish-him big">Finish him!!</div>
+      <div class="scorpion-wins">Scorpion wins</div>
+    </div>
+
+    <div class="character scorpion"></div>
+    <div class="character jax"></div>
+    <div class="dan-forden"></div>
+  </div>
+
+  <script>
+    import "./_scripts/sorry-jax/sorry-jax";
+  </script>
+</BlankLayout>

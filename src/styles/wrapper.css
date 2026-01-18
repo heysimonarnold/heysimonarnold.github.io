@@ -1,0 +1,7 @@
+.text-content-wrapper {
+  box-sizing: content-box;
+  margin: 0 auto;
+  max-width: 62ch; /* Longueur maximale d'une ligne de texte recommandée entre 60 et 70ch */
+  padding: 0 var(--gutter3); /* Le texte ne doit jamais toucher au bord de l'écran! */
+  width: stretch;
+}

@@ -1,0 +1,107 @@
+---
+import "./_styles/battalgazi-yeli.css";
+
+import BlankLayout from "@/layouts/BlankLayout.astro";
+const meta = {
+  desc: "Battalgazi - Yeli est une recréation en HTML/CSS d' une oeuvre de l'artiste John Battalgazi rendant hommage à Christian Yelich.",
+  favicon: "/explorations/battalgazi-yeli/favicon.svg",
+  ogImage: "/explorations/battalgazi-yeli/og-image.png",
+  title: "Battalgazi - Yeli",
+};
+---
+
+<BlankLayout type="page" {...meta}>
+  <input type="radio" name="show" value="hide" id="original" />
+  <input type="radio" name="show" value="draw" id="mixed" checked />
+  <input type="radio" name="show" value="show" id="html-css" />
+
+  <nav class="nav">
+    Show<br />
+    <ul>
+      <li>
+        <label for="original">Original</label>
+      </li>
+      <li>
+        <label for="mixed">Mixed</label>
+      </li>
+      <li>
+        <label for="html-css">HTML/CSS</label>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="wrapper">
+    <img
+      src="/explorations/battalgazi-yeli/img/battalgazi.webp"
+      width="639"
+      height="902"
+      class="ref"
+    />
+    <div class="code">
+      <div class="bg"></div>
+
+      <div class="ball"></div>
+
+      <div class="left-foot"></div>
+
+      <div class="brown-circle"></div>
+
+      <div class="lower-zone"></div>
+
+      <div class="right-shoe"></div>
+
+      <div class="yellow-upperleg"></div>
+      <div class="yellow-shoe"></div>
+
+      <div class="bat">
+        <div class="dark"></div>
+        <div class="swing"></div>
+      </div>
+
+      <div class="upper-zone">
+        <div class="upperleg">
+          <div class="shadow"></div>
+        </div>
+        <div class="lowerleg">
+          <div class="stripe"></div>
+        </div>
+      </div>
+
+      <div class="big-blue">
+        <div class="yellow"></div>
+
+        <div class="butt"></div>
+
+        <div class="upperleg"></div>
+        <div class="lowerleg">
+          <div class="stripes"></div>
+        </div>
+      </div>
+
+      <div class="biceps-wrapper">
+        <div class="biceps"></div>
+        <div class="sleeve"></div>
+      </div>
+
+      <div class="lower-forearm"></div>
+
+      <div class="head">
+        <div class="inner">
+          <div class="face">
+            <div class="light-blue"></div>
+            <div class="hair"></div>
+          </div>
+        </div>
+
+        <div class="cap-wrapper">
+          <div class="cap"></div>
+        </div>
+
+        <div class="back-hair"></div>
+      </div>
+      <div class="shoulder"></div>
+
+      <div class="hands"></div>
+    </div>
+  </div>
+</BlankLayout>
