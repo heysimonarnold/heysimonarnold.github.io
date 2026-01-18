@@ -17,7 +17,7 @@ export const SITE: Site = {
   lang: "fr",
   locale: "fr-CA",
   ogImage: "/og-image.png",
-  repo: "https://github.com/heysimonarnold/heysimonarnold.github.io",
+  repo: "https://github.com/heysimonarnold/heysimonarnold.github.io/",
   title: "Simon Arnold",
   website: "https://heysimonarnold.github.io/",
 };
