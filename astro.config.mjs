@@ -6,12 +6,14 @@ import mdx from "@astrojs/mdx";
 import remarkDirective from "remark-directive";
 import { remarkChecklist } from "./plugins/remark/remark-checklist.ts";
 import { remarkFractions } from "./plugins/remark/remark-fractions.ts";
+import rehypeUnwrapImages from "./plugins/rehype/rehype-unwrap-images.ts";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx()],
   markdown: {
     smartypants: true,
+    rehypePlugins: [rehypeUnwrapImages],
     remarkPlugins: [remarkDirective, remarkChecklist, remarkFractions],
   },
   site: "https://heysimonarnold.github.io",

@@ -41,7 +41,7 @@
     font-family: var(--font-heading);
   }
 
-  & > p:first-child,
+  & > p:first-of-type,
   & > h2 + p {
     text-indent: 2.5em;
   }
