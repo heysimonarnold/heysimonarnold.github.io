@@ -21,6 +21,7 @@ const blogue = defineCollection({
     type: z.string().default("BlogPost"),
     dateCreated: z.date(),
     dateModified: z.date().optional(),
+    ogImage: z.string().optional(),
   }),
 });
 

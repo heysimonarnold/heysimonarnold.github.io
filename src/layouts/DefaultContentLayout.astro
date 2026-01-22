@@ -5,12 +5,13 @@ import ContentEnd from "./components/ContentEnd.astro";
 interface Props {
   title: string;
   type: string;
+  ogImage?: string;
 }
 
-const { title, type } = Astro.props;
+const { title, type, ogImage } = Astro.props;
 ---
 
-<BaseLayout title={title} type={type}>
+<BaseLayout title={title} type={type} ogImage={ogImage}>
   <div class="text-content-wrapper">
     <slot />
   </div>

@@ -21,7 +21,11 @@ const { Content } = await entry.render();
 const data = entry.data;
 ---
 
-<DefaultContentLayout title={data.title} type={data.type}>
+<DefaultContentLayout
+  title={data.title}
+  type={data.type}
+  ogImage={data.ogImage}
+>
   <Wysiwyg>
     <Content />
   </Wysiwyg>
