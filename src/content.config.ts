@@ -22,6 +22,7 @@ const blogue = defineCollection({
     dateCreated: z.date(),
     dateModified: z.date().optional(),
     ogImage: z.string().optional(),
+    hideHeaderImage: z.boolean().default(false),
   }),
 });
 

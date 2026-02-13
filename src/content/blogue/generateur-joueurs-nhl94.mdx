@@ -1,0 +1,23 @@
+---
+title: Générateur de joueurs NHL94
+dateCreated: 2020-12-28
+ogImage: /explorations/generateur-joueurs-nhl94/og-image.png
+---
+
+NHL94 est considéré par plusieurs comme le jeu de hockey rétro par excellence. Facile à prendre en main, avec un gameplay accrocheur, il a marqué son époque. Il fut le premier jeu de hockey avec les logos officiels des équipes de la LNH, les noms des joueurs, les tirs sur réception, le contrôle des gardiens… la liste est longue.
+
+En tant que kid ayant grandi dans le Québec des années 90 où le hockey est pratiquement une religion, ce jeu s’est inévitablement taillé une place bien spéciale dans mon cœur.
+
+Quand j’ai découvert que [Dave Geeky Ideas](https://davesgeekyideas.com/2017/02/28/nhl-94-tabletop-hockey/) avait transposé l’esthétique de NHL94 au hockey sur table, j’ai eu un véritable coup de foudre! Immédiatement, je me suis dit que le concept pouvait aller encore plus loin. Après tout, les Flames ne sont pas l’équipe préférée de tous. Pourquoi ne pas permettre à chacun de générer des joueurs de hockey sur table de leur équipe favorite?
+
+C’est ainsi que j’ai commencé à développer un [générateur de joueurs NHL94](/explorations/generateur-joueurs-nhl94).
+
+[Voir le projet en ligne](/explorations/generateur-joueurs-nhl94)
+
+P.S. Après avoir complété le projet, j’ai découvert qu’il existe encore aujourd’hui des [versions mises à jour de NHL94](https://forum.nhl94.com/index.php?/topic/34793-nhl-94-2025-edition-by-adam-catalyst/). Comme quoi, le jeu est devenu culte!
+
+## Aspect technique 
+
+Le générateur est fait en pure JavaScript Vanille. 
+
+La [librairie html2canvas](https://html2canvas.hertzen.com/) a été utilisée afin de sauvegarder les montages en images. Son utilisation m’a cependant forcé à recourir à de vieilles techniques plus _“old school”_ afin de ne pas compromettre le résultat obtenu par celle-ci. Par exemple, les transformations CSS utilisées pour redimensionner ou déplacer des éléments causaient des problèmes d’exportation. J’ai donc dû retracer certains éléments en SVG, ou encore les dupliquer, pour contourner ces limitations.

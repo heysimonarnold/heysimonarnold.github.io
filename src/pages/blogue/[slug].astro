@@ -1,7 +1,7 @@
 ---
 // src/pages/blogue/[slug].astro
 import Wysiwyg from "@/components/Wysiwyg.astro";
-import DefaultContentLayout from "@/layouts/DefaultContentLayout.astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -18,15 +18,17 @@ const entry = collection.find((e) => e.slug === slug);
 if (!entry) throw new Error(`Billet de blogue non-trouvé 🤷‍♂️: ${slug}`);
 
 const { Content } = await entry.render();
+
 const data = entry.data;
 ---
 
-<DefaultContentLayout
+<BlogLayout
   title={data.title}
   type={data.type}
   ogImage={data.ogImage}
+  hideHeaderImage={data.hideHeaderImage}
 >
   <Wysiwyg>
     <Content />
   </Wysiwyg>
-</DefaultContentLayout>
+</BlogLayout>

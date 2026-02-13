@@ -1,0 +1,36 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import ContentEnd from "./components/ContentEnd.astro";
+
+interface Props {
+  title: string;
+  type: string;
+  ogImage?: string;
+  hideHeaderImage?: boolean;
+}
+
+const { title, type, ogImage, hideHeaderImage } = Astro.props;
+---
+
+<BaseLayout title={title} type={type} ogImage={ogImage}>
+  <div class="text-content-wrapper">
+    {
+      ogImage && !hideHeaderImage && (
+        <img src={ogImage} alt={title} class="blog-header" />
+      )
+    }
+    <slot />
+  </div>
+
+  <ContentEnd />
+</BaseLayout>
+
+<style>
+  .blog-header {
+    border-radius: var(--radius4);
+    display: block;
+    margin: 0 auto var(--gutter3);
+    max-width: 100%;
+    height: auto;
+  }
+</style>
