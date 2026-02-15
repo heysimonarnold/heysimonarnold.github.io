@@ -7,7 +7,7 @@ let currentPath = "";
 
 parts.forEach((part) => {
   if (part) {
-    currentPath += `/${part}`;
+    currentPath += `/${part}/`;
     breadcrumbs.push({
       title: part,
       link: `${currentPath}`,

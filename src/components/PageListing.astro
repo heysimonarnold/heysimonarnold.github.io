@@ -22,7 +22,7 @@ const { basePath, items, multiColumn = false } = Astro.props as Props;
         {/* Le div ne sert qu'à éviter que le layout flex entre en conflit
             avec les style du lien  */}
         <div>
-          <a href={`${basePath}/${item.slug}`}>{item.title}</a>
+          <a href={`${basePath}/${item.slug}/`}>{item.title}</a>
         </div>
       </li>
     ))

@@ -10,11 +10,11 @@ export const MAIN_MENU: MenuItem[] = [
   },
   {
     title: "Blogue",
-    href: "/blogue",
+    href: "/blogue/",
   },
   {
     title: "Explorations",
-    href: "/explorations",
+    href: "/explorations/",
   },
   {
     title: "Recettes",

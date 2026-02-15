@@ -32,7 +32,7 @@ class Winnie {
 
   init() {
     const hashResolution = window.location.hash.substring(1);
-    const slug = window.location.pathname.split("/").pop();
+    const slug = window.location.pathname.replace(/\/$/, "").split("/").pop();
 
     const foundIndex = memesArr.findIndex((obj) => obj.slug === slug);
     this.index = foundIndex ?? 0;
@@ -136,7 +136,7 @@ class Winnie {
 
     const baseUrl = pathname.substring(0, index + delimiter.length);
 
-    let url = this.obj.slug ? `${baseUrl}/${this.obj.slug}` : baseUrl;
+    let url = this.obj.slug ? `${baseUrl}/${this.obj.slug}/` : baseUrl;
 
     if (this.resolution && this.resolution !== "standard") {
       url += `#${this.resolution}`;

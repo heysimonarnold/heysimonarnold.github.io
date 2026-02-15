@@ -11,7 +11,7 @@ import rehypeUnwrapImages from "./plugins/rehype/rehype-unwrap-images.ts";
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx()],
-  trailingSlash: "never",
+  trailingSlash: "always",
   markdown: {
     smartypants: true,
     rehypePlugins: [rehypeUnwrapImages],
