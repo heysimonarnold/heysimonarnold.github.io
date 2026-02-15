@@ -141,7 +141,7 @@ const meta = {
 
     const goHome = document.querySelector("#go-home");
     goHome?.addEventListener("click", () => {
-      window.location.href = `${window.location.pathname.split("/").slice(0, -1).join("/")}/`;
+      window.location.href = `${window.location.pathname.replace(/\/$/, "").split("/").slice(0, -1).join("/")}/`;
     });
   </script>
 </BlankLayout>
