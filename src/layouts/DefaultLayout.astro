@@ -11,6 +11,7 @@ const { title, type } = Astro.props;
 ---
 
 <BaseLayout title={title} type={type}>
+  <slot name="after-pager-header" slot="after-pager-header" />
   <div class="text-content-wrapper">
     <slot />
   </div>

@@ -3,17 +3,18 @@ import type { PageListingItem } from "@/configs/pageListing";
 
 type Props = {
   basePath: string;
+  id?: string;
   items: PageListingItem[];
   multiColumn?: boolean;
 };
 
-const { basePath, items, multiColumn = false } = Astro.props as Props;
+const { basePath, id, items, multiColumn = false } = Astro.props as Props;
 ---
 
-<ul class:list={["listing", { "listing--columns": multiColumn }]}>
+<ul class:list={["listing", { "listing--columns": multiColumn }]} id={id}>
   {
     items.map((item) => (
-      <li>
+      <li data-tags={item.tags?.length ? item.tags.join(",") : undefined}>
         {item.date && (
           <time datetime={item.date.toISOString()}>
             {item.date.toLocaleDateString("fr-CA").replace(/-/g, ".")}

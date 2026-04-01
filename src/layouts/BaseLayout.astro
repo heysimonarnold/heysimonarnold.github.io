@@ -3,7 +3,7 @@ import "@/styles/global.css";
 import { SITE } from "@/configs/site";
 import MainHeader from "@/components/MainHeader.astro";
 import MainFooter from "@/components/MainFooter.astro";
-import PageTitle from "@/components/PageTitle.astro";
+import PageHeader from "@/components/PageHeader.astro";
 import FontsPreload from "./components/FontsPreload.astro";
 import ThemeScript from "./components/ThemeScript.astro";
 import HeadMeta from "./components/HeadMeta.astro";
@@ -25,7 +25,9 @@ const { title, type, ogImage, favicon, desc } = Astro.props;
     <MainHeader transition:persist />
 
     <main itemscope itemtype={`https://schema.org/${type}`}>
-      <PageTitle title={title} />
+      <PageHeader title={title}>
+        <slot id="after-pager-header" name="after-pager-header" />
+      </PageHeader>
 
       <slot />
     </main>
