@@ -51,6 +51,16 @@
     }
   }
 
+  summary {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: inline-block;
+    }
+  }
+
   & > p:first-of-type,
   & > h2 + p {
     text-indent: 2.5em;
