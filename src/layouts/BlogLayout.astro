@@ -4,15 +4,16 @@ import ContentEnd from "./components/ContentEnd.astro";
 
 interface Props {
   title: string;
+  desc?: string;
   type: string;
   ogImage?: string;
   hideHeaderImage?: boolean;
 }
 
-const { title, type, ogImage, hideHeaderImage } = Astro.props;
+const { title, desc, type, ogImage, hideHeaderImage } = Astro.props;
 ---
 
-<BaseLayout title={title} type={type} ogImage={ogImage}>
+<BaseLayout title={title} desc={desc} type={type} ogImage={ogImage}>
   <div class="text-content-wrapper">
     {
       ogImage && !hideHeaderImage && (

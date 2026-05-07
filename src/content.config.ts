@@ -3,7 +3,7 @@ import { SITE } from "@/configs/site";
 
 const basicProps = {
   author: z.string().default(SITE.author),
-  description: z.string().optional(),
+  desc: z.string().default(SITE.desc),
   draft: z.boolean().default(false),
   tags: z.array(z.string()).default([]),
   title: z.string(),
