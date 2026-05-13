@@ -54,10 +54,11 @@
   iframe[src*="lexaloffle.com"] {
     display: block;
     margin: 1em auto;
-    max-width: 540px;
+    max-width: 539px;
     aspect-ratio: 1/1;
     width: 100%;
     height: auto;
+    overflow: hidden;
   }
 
   summary {
