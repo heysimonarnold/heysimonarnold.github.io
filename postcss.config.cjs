@@ -3,14 +3,6 @@ const postcssCustomMediaGenerator = require("postcss-custom-media-generator");
 
 module.exports = {
   plugins: [
-    require("postcss-mixins"),
-    require("postcss-nested"),
-    require("autoprefixer"),
-  ],
-};
-
-module.exports = {
-  plugins: [
     postcssCustomMediaGenerator({
       sm: 576,
       md: 768,
@@ -18,6 +10,7 @@ module.exports = {
       xl: 1200,
       xxl: 1400,
     }),
+
     postcssPresetEnv(),
     require("postcss-mixins"),
     require("postcss-nested"),

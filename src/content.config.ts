@@ -1,4 +1,6 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+
 import { SITE } from "@/configs/site";
 
 const basicProps = {
@@ -10,12 +12,18 @@ const basicProps = {
 };
 
 const autres = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/autres",
+  }),
   schema: z.object(basicProps),
 });
 
 const blogue = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/blogue",
+  }),
   schema: z.object({
     ...basicProps,
     type: z.string().default("BlogPost"),
@@ -27,7 +35,10 @@ const blogue = defineCollection({
 });
 
 const recettes = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/recettes",
+  }),
   schema: z.object({
     ...basicProps,
     type: z.string().default("Recipe"),

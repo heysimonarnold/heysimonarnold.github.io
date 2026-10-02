@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import path from "node:path";
 
 // Remark plugins
 import remarkDirective from "remark-directive";
@@ -10,6 +11,13 @@ import rehypeUnwrapImages from "./plugins/rehype/rehype-unwrap-images.ts";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    resolve: {
+      alias: {
+        "@": path.resolve("./src"),
+      },
+    },
+  },
   integrations: [mdx()],
   trailingSlash: "always",
   markdown: {

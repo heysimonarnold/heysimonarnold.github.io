@@ -7,7 +7,7 @@ import { getCollection } from "astro:content";
 const collection = await getCollection("blogue");
 
 // Optional: filter by top-level (no `/` in slug) if you want folder separation
-const topLevelEntries = collection.filter((e) => !e.slug.includes("/"));
+const topLevelEntries = collection.filter((e) => !e.id.includes("/"));
 
 const items: PageListingItem[] = topLevelEntries
   .sort(
@@ -17,7 +17,7 @@ const items: PageListingItem[] = topLevelEntries
   )
   .map((entry) => ({
     title: entry.data.title,
-    slug: entry.slug,
+    slug: entry.id,
     date: entry.data.dateCreated,
   }));
 ---

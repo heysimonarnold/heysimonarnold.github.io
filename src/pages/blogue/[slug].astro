@@ -2,22 +2,22 @@
 // src/pages/blogue/[slug].astro
 import Wysiwyg from "@/components/Wysiwyg.astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const collection = await getCollection("blogue");
   return collection.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
   }));
 }
 
 const collection = await getCollection("blogue");
 const slug = Astro.params.slug;
-const entry = collection.find((e) => e.slug === slug);
+const entry = collection.find((e) => e.id === slug);
 
 if (!entry) throw new Error(`Billet de blogue non-trouvé 🤷‍♂️: ${slug}`);
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const data = entry.data;
 ---
