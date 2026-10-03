@@ -1,10 +1,10 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import { satteri } from "@astrojs/markdown-satteri";
 import path from "node:path";
 
-// Remark plugins
-import remarkDirective from "remark-directive";
+// Markdown plugins
 import { remarkChecklist } from "./plugins/remark/remark-checklist.ts";
 import { remarkFractions } from "./plugins/remark/remark-fractions.ts";
 import rehypeUnwrapImages from "./plugins/rehype/rehype-unwrap-images.ts";
@@ -21,9 +21,15 @@ export default defineConfig({
   integrations: [mdx()],
   trailingSlash: "always",
   markdown: {
-    smartypants: true,
-    rehypePlugins: [rehypeUnwrapImages],
-    remarkPlugins: [remarkDirective, remarkChecklist, remarkFractions],
+    processor: satteri({
+      mdastPlugins: [remarkChecklist, remarkFractions],
+      hastPlugins: [rehypeUnwrapImages],
+      features: {
+        directive: true,
+        smartPunctuation: true,
+        rawHtml: true,
+      },
+    }),
   },
   site: "https://heysimonarnold.github.io",
 });

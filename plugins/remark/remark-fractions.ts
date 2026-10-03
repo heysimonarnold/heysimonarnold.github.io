@@ -1,5 +1,5 @@
-import { visit } from "unist-util-visit";
-import type { Root, Text } from "mdast";
+import { defineMdastPlugin } from "satteri";
+import type { Text } from "mdast";
 
 const FRACTIONS: Record<string, string> = {
   "1/2": "½",
@@ -21,27 +21,30 @@ const FRACTIONS: Record<string, string> = {
 
 const SKIP_PARENTS = new Set(["code", "inlineCode"]);
 
-export function remarkFractions() {
-  return (tree: Root) => {
-    visit(tree, "text", (node: Text, _, parent) => {
-      if (!parent) return;
+export const remarkFractions = defineMdastPlugin({
+  name: "remark-fractions",
+  text(node, context) {
+    const parent = context.parent(node);
+    if (!parent) return;
 
-      // Type-safe guard
-      if ("type" in parent && SKIP_PARENTS.has(parent.type)) {
-        return;
-      }
+    if ("type" in parent && SKIP_PARENTS.has(parent.type)) {
+      return;
+    }
 
-      let value = node.value;
+    let value = node.value;
 
-      for (const [ascii, unicode] of Object.entries(FRACTIONS)) {
-        // Replace only standalone fractions (word boundaries)
-        const regex = new RegExp(`\\b${ascii}\\b`, "g");
-        value = value.replace(regex, unicode);
-      }
+    for (const [ascii, unicode] of Object.entries(FRACTIONS)) {
+      const regex = new RegExp(`\\b${ascii}\\b`, "g");
+      value = value.replace(regex, unicode);
+    }
 
-      node.value = value;
-    });
-  };
-}
+    if (value !== node.value) {
+      return {
+        ...node,
+        value,
+      } as Text;
+    }
+  },
+});
 
 export default remarkFractions;

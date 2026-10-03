@@ -1,32 +1,30 @@
 // plugins/remark/remark-checklist.ts
-import type { Plugin } from "unified";
-import type { Root, List, Paragraph } from "mdast";
-import { visit } from "unist-util-visit";
+import { defineMdastPlugin } from "satteri";
+import type { List, Paragraph } from "mdast";
 
-export const remarkChecklist: Plugin<[], Root> = () => {
-  return (tree: Root) => {
-    visit(tree, "containerDirective", (node: any) => {
-      if (node.name !== "checklist") return;
+export const remarkChecklist = defineMdastPlugin({
+  name: "remark-checklist",
+  containerDirective(node, context) {
+    if (node.name !== "checklist") return;
 
-      visit(node, "list", (listNode: List) => {
-        // Add class to the list
-        listNode.data = {
-          ...(listNode.data || {}),
-          hProperties: {
-            ...(listNode.data?.hProperties || {}),
-            className: "checklist",
-          },
-        };
+    const listNode = node.children.find(
+      (child: any) => child.type === "list",
+    ) as List | undefined;
+    if (!listNode) return;
 
-        listNode.children.forEach((item) => {
-          const paragraph = item.children[0] as Paragraph | undefined;
-          if (!paragraph || paragraph.type !== "paragraph") return;
+    const transformedItems = listNode.children.map((item: any) => {
+      const paragraph = item.children?.[0] as Paragraph | undefined;
+      if (!paragraph || paragraph.type !== "paragraph") return item;
 
-          // Replace paragraph children with HTML label + checkbox
-          paragraph.children = [
-            {
-              type: "html",
-              value: `
+      return {
+        ...item,
+        children: [
+          {
+            ...paragraph,
+            children: [
+              {
+                type: "html",
+                value: `
 <label class="checklist__item">
   <input type="checkbox" class="sr-only" />
   <span class="checklist__icon">
@@ -35,17 +33,32 @@ export const remarkChecklist: Plugin<[], Root> = () => {
     </svg>
   </span>
   <span class="checklist__label">`,
-            },
-            ...paragraph.children,
-            {
-              type: "html",
-              value: `</span></label>`,
-            },
-          ];
-        });
-      });
+              },
+              ...paragraph.children,
+              {
+                type: "html",
+                value: `</span></label>`,
+              },
+            ],
+          },
+        ],
+      };
     });
-  };
-};
+
+    const transformedListNode: List = {
+      ...listNode,
+      data: {
+        ...(listNode.data || {}),
+        hProperties: {
+          ...(listNode.data?.hProperties || {}),
+          className: "checklist",
+        },
+      },
+      children: transformedItems,
+    };
+
+    context.replaceNode(node, transformedListNode);
+  },
+});
 
 export default remarkChecklist;
