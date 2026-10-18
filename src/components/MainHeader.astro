@@ -1,6 +1,7 @@
 ---
 import { MAIN_MENU } from "@/configs/mainMenu";
 import ThemeToggle from "./ThemeToggle.astro";
+import Home from "@/icons/home.svg";
 
 const pathname = new URL(Astro.request.url).pathname;
 const pathname_part = pathname.split("/")[1];
@@ -16,16 +17,22 @@ const pathname_part = pathname.split("/")[1];
       {
         MAIN_MENU.map((item) => (
           <li>
-            <a
-              href={item.href}
-              class={
-                "/" + pathname_part === "/" + item.href.split("/")[1]
-                  ? "is-active"
-                  : ""
-              }
-            >
-              {item.title}
-            </a>
+            {item.title === "Accueil" ? (
+              <a href={item.href} class="icon-button">
+                <Home />
+              </a>
+            ) : (
+              <a
+                href={item.href}
+                class={
+                  "/" + pathname_part === "/" + item.href.split("/")[1]
+                    ? "is-active"
+                    : ""
+                }
+              >
+                {item.title}
+              </a>
+            )}
           </li>
         ))
       }
@@ -54,13 +61,14 @@ const pathname_part = pathname.split("/")[1];
   ul {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: var(--gutter2);
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  a {
+  a:not(.icon-button) {
     @add-mixin link;
   }
 
