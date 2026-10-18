@@ -1,6 +1,7 @@
 export interface PageListingItem {
   title: string;
-  slug: string;
+  slug?: string;
   date?: Date;
   tags?: string[];
+  url?: string;
 }
