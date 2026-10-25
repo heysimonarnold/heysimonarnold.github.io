@@ -7,7 +7,7 @@ import path from "node:path";
 // Markdown plugins
 import { remarkChecklist } from "./plugins/remark/remark-checklist.ts";
 import { remarkFractions } from "./plugins/remark/remark-fractions.ts";
-import rehypeUnwrapImages from "./plugins/rehype/rehype-unwrap-images.ts";
+import { unwrapImages } from "@/plugins/hast/unwrap-images.ts";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +23,7 @@ export default defineConfig({
   markdown: {
     processor: satteri({
       mdastPlugins: [remarkChecklist, remarkFractions],
-      hastPlugins: [rehypeUnwrapImages],
+      hastPlugins: [unwrapImages],
       features: {
         directive: true,
         smartPunctuation: true,

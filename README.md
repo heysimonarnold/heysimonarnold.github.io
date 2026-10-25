@@ -39,3 +39,7 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Tests
+
+Si les tets ne fonctionnent pas au lancement, utilisez la commande nvm use pour forcer le terminal à prendre la bonne version de node et ensuite reexecuter les tests.
