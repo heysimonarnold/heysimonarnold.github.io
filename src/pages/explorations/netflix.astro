@@ -1,5 +1,5 @@
 ---
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Netlix est une animation inspirée de Mat Voyce. En jouant avec les formes et les couleurs, elle crée une illusion de mouvement hypnotique qui rappelle l'expérience captivante de la plateforme de streaming.",
   favicon: "/explorations/netflix/favicon.svg",
@@ -8,7 +8,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="netflix">
     <g class="no1">
       <path
@@ -54,7 +54,7 @@ const meta = {
       ></path>
     </g>
   </svg>
-</BlankLayout>
+</StandaloneLayout>
 
 <style>
   html,

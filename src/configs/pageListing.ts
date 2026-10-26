@@ -1,7 +1,8 @@
-export interface PageListingItem {
+interface PageListingItemBase {
   title: string;
-  slug?: string;
   date?: Date;
   tags?: string[];
-  url?: string;
 }
+
+export type PageListingItem = PageListingItemBase &
+  ({ slug: string; url?: never } | { url: string; slug?: never });

@@ -1,7 +1,7 @@
 ---
 import "./_styles/generateur-joueurs-nhl94.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Escape Jaws est un jeu sonore où l’ouïe devient instinct de survie. Guidé par des signaux invisibles, tentez d’échapper au requin mythique, une présence tapie dans l’ombre, prête à vous dévorez au moindre faux pas.",
   favicon: "/explorations/generateur-joueurs-nhl94/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <div class="canvas-wrapper">
     <div class="canvas" id="canvas">
       <svg
@@ -578,4 +578,4 @@ const meta = {
       import "./_scripts/generateur-joueurs-nhl94/generateur-joueurs-nhl94";
     </script>
   </nav>
-</BlankLayout>
+</StandaloneLayout>

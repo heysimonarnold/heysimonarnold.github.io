@@ -1,7 +1,7 @@
 ---
 import "./_styles/escape-jaws.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Escape Jaws est un jeu sonore où l’ouïe devient instinct de survie. Guidé par des signaux invisibles, tentez d’échapper au requin mythique, une présence tapie dans l’ombre, prête à vous dévorez au moindre faux pas.",
   favicon: "/explorations/escape-jaws/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <main class="game">
     <section class="board">
       <div class="jaws">
@@ -67,4 +67,4 @@ const meta = {
   <script>
     import "./_scripts/escape-jaws/escape-jaws";
   </script>
-</BlankLayout>
+</StandaloneLayout>

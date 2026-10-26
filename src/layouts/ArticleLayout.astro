@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import SiteLayout from "./SiteLayout.astro";
 import ContentEnd from "./components/ContentEnd.astro";
 
 interface Props {
@@ -11,10 +11,10 @@ interface Props {
 const { title, type, ogImage } = Astro.props;
 ---
 
-<BaseLayout title={title} type={type} ogImage={ogImage}>
+<SiteLayout title={title} type={type} ogImage={ogImage}>
   <div class="text-content-wrapper">
     <slot />
   </div>
 
   <ContentEnd />
-</BaseLayout>
+</SiteLayout>

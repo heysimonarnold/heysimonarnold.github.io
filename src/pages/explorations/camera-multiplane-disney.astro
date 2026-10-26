@@ -4,7 +4,7 @@ import Play from "@/icons/play.svg";
 import Pause from "@/icons/pause.svg";
 import Youtube from "@/icons/youtube.svg";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Animation CSS démontrant le fonctionnement de la fameuse caméra multiplane de Disney!",
   favicon: "/explorations/camera-multiplane-disney/favicon.svg",
@@ -13,7 +13,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <div class="multiplane">
     <div class="wrapper">
       <img
@@ -53,4 +53,4 @@ const meta = {
   <script>
     import "./_scripts/camera-multiplane-disney";
   </script>
-</BlankLayout>
+</StandaloneLayout>

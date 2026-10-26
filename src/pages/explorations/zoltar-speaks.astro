@@ -1,7 +1,7 @@
 ---
 import "./_styles/zoltar-speaks.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Zoltar speaks est un dé mécanique transformant le hasard en message venu du futur. Oserez-vous interroger votre avenir?",
   favicon: "/explorations/zoltar-speaks/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <header>
     <h1>Ask your question, press the button and Zoltar&nbsp;speaks!</h1>
   </header>
@@ -117,4 +117,4 @@ const meta = {
   <script>
     import "./_scripts/zoltar-speaks.ts";
   </script>
-</BlankLayout>
+</StandaloneLayout>

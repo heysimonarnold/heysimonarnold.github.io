@@ -1,7 +1,7 @@
 ---
 import "./_styles/daft-pad.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Daft Pad est un Launchpad virtuel en l'honneur du groupe Daft Punk 🤖",
   favicon: "/explorations/daft-pad/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <div class="board">
     <div class="row">
       <button class="btn purple key3" data-sound="3">
@@ -92,4 +92,4 @@ const meta = {
   <script>
     import "./_scripts/daft-pad";
   </script>
-</BlankLayout>
+</StandaloneLayout>

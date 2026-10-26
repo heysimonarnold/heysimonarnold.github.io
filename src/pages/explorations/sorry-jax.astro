@@ -1,7 +1,7 @@
 ---
 import "./_styles/sorry-jax/sorry-jax.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Sorry Jax est un exutoire brutal inspiré de Mortal Kombat II. À chaque uppercut, la colère se libère, le corps se souvient et la rage trouve enfin sa sortie.",
   favicon: "/explorations/sorry-jax/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <div class="instructions">
     <img src="/explorations/sorry-jax/mobile-instructions.jpg" class="mobile" />
     <img
@@ -71,4 +71,4 @@ const meta = {
   <script>
     import "./_scripts/sorry-jax/sorry-jax";
   </script>
-</BlankLayout>
+</StandaloneLayout>

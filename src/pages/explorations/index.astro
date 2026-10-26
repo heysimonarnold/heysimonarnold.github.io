@@ -1,5 +1,5 @@
 ---
-import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 import PageListing from "@/components/PageListing.astro";
 import type { PageListingItem } from "@/configs/pageListing";
 
@@ -63,6 +63,6 @@ const items: PageListingItem[] = [
 ];
 ---
 
-<DefaultLayout title="Explorations" type="page">
+<PageLayout title="Explorations" type="page">
   <PageListing basePath="/explorations" items={items} />
-</DefaultLayout>
+</PageLayout>

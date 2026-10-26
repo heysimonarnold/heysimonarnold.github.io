@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import SiteLayout from "./SiteLayout.astro";
 import ContentEnd from "./components/ContentEnd.astro";
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 const { title, desc, type, ogImage, hideHeaderImage } = Astro.props;
 ---
 
-<BaseLayout title={title} desc={desc} type={type} ogImage={ogImage}>
+<SiteLayout title={title} desc={desc} type={type} ogImage={ogImage}>
   <div class="text-content-wrapper">
     {
       ogImage && !hideHeaderImage && (
@@ -24,7 +24,7 @@ const { title, desc, type, ogImage, hideHeaderImage } = Astro.props;
   </div>
 
   <ContentEnd />
-</BaseLayout>
+</SiteLayout>
 
 <style>
   .blog-header {

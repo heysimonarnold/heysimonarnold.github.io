@@ -1,5 +1,5 @@
 ---
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const slug = Number(Astro.params.slug);
 let rotation = 0 + "deg";
 if (typeof slug === "number" && slug >= 0 && slug <= 100) {
@@ -22,7 +22,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <div class="container">
     <div class="container-wrapper">
       <div class="gauge">
@@ -33,7 +33,7 @@ const meta = {
       </div>
     </div>
   </div>
-</BlankLayout>
+</StandaloneLayout>
 
 <style define:vars={{ rotation }}>
   body,

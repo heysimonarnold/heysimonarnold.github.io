@@ -1,7 +1,7 @@
 ---
 import "./_styles/battalgazi-yeli.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Battalgazi - Yeli est une recréation en HTML/CSS d' une oeuvre de l'artiste John Battalgazi rendant hommage à Christian Yelich.",
   favicon: "/explorations/battalgazi-yeli/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <input type="radio" name="show" value="hide" id="original" />
   <input type="radio" name="show" value="draw" id="mixed" checked />
   <input type="radio" name="show" value="show" id="html-css" />
@@ -106,4 +106,4 @@ const meta = {
       <div class="hands"></div>
     </div>
   </div>
-</BlankLayout>
+</StandaloneLayout>

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import SiteLayout from "./SiteLayout.astro";
 
 interface Props {
   title: string;
@@ -9,9 +9,9 @@ interface Props {
 const { title, type } = Astro.props;
 ---
 
-<BaseLayout title={title} type={type}>
+<SiteLayout title={title} type={type}>
   <slot name="after-pager-header" slot="after-pager-header" />
   <div class="text-content-wrapper">
     <slot />
   </div>
-</BaseLayout>
+</SiteLayout>

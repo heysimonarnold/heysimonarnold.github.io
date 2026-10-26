@@ -1,7 +1,7 @@
 ---
 import "./_styles/cassette-micro-mages.css";
 
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 const meta = {
   desc: "Cassette Micro Mages est un rendu en 3D en CSS rendant hommage au jeu NES de le compagnie Morphcat.",
   favicon: "/explorations/cassette-micro-mages/favicon.svg",
@@ -10,7 +10,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <div class="cartridge">
     <div class="box body">
       <div class="box body__left">
@@ -84,4 +84,4 @@ const meta = {
   <script>
     import "./_scripts/cassette-micro-mages";
   </script>
-</BlankLayout>
+</StandaloneLayout>

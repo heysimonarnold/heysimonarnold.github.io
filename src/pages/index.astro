@@ -1,7 +1,7 @@
 ---
 import PageListing from "@/components/PageListing.astro";
 import Wysiwyg from "@/components/Wysiwyg.astro";
-import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 
 import { getCollection, getEntry, render } from "astro:content";
 
@@ -22,7 +22,7 @@ const latest = entries
   .slice(0, 6);
 ---
 
-<DefaultLayout title="Simon Arnold" type="website">
+<PageLayout title="Simon Arnold" type="website">
   <Wysiwyg>
     <h2>Billets récents</h2>
 
@@ -37,4 +37,4 @@ const latest = entries
 
     <Content />
   </Wysiwyg>
-</DefaultLayout>
+</PageLayout>

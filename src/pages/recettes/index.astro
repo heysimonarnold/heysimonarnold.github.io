@@ -3,7 +3,7 @@
 import PageListing from "@/components/PageListing.astro";
 import PageListingFilters from "@/components/PageListingFilters.astro";
 import type { PageListingItem } from "@/configs/pageListing";
-import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 
 const collection = await getCollection("recettes");
@@ -17,12 +17,12 @@ const items: PageListingItem[] = topLevelEntries.map((entry) => ({
 }));
 ---
 
-<DefaultLayout title="Recettes" type="page">
+<PageLayout title="Recettes" type="page">
   <slot slot="after-pager-header">
     <PageListingFilters name="protein" items={["🐮", "🐔", "🐷", "🐟", "🌱"]} />
   </slot>
   <PageListing basePath="/recettes" id="recipes-list" items={items} />
-</DefaultLayout>
+</PageLayout>
 
 <script>
   const proteinRadioBtns = document.querySelectorAll('input[name="protein"]');

@@ -18,6 +18,6 @@ export const MAIN_MENU: MenuItem[] = [
   },
   {
     title: "Recettes",
-    href: "/recettes",
+    href: "/recettes/",
   },
 ];

@@ -1,5 +1,5 @@
 ---
-import BlankLayout from "@/layouts/BlankLayout.astro";
+import StandaloneLayout from "@/layouts/StandaloneLayout.astro";
 import "../_styles/winnie-le-caca.css";
 import posts from "../_scripts/winnie-le-caca/memes.json";
 
@@ -20,7 +20,7 @@ const meta = {
 };
 ---
 
-<BlankLayout type="page" {...meta}>
+<StandaloneLayout type="page" {...meta}>
   <nav class="nav">
     <label>
       <input type="radio" name="resolution" value="standard" checked /> Standard
@@ -144,4 +144,4 @@ const meta = {
       window.location.href = `${window.location.pathname.replace(/\/$/, "").split("/").slice(0, -1).join("/")}/`;
     });
   </script>
-</BlankLayout>
+</StandaloneLayout>
