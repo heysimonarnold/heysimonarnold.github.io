@@ -19,7 +19,7 @@ export default defineConfig({
     },
   },
   integrations: [mdx()],
-  trailingSlash: "always",
+  trailingSlash: "ignore",
   markdown: {
     processor: satteri({
       mdastPlugins: [formatChecklist, formatFractions],
