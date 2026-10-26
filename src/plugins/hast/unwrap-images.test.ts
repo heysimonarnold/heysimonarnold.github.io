@@ -1,61 +1,23 @@
+// @vitest-environment node
 import { describe, expect, test } from "vitest";
 import { unwrapImages } from "./unwrap-images";
-import type { Root } from "hast";
+import { markdownToHtml } from "satteri";
 
 describe("unwrapImages", () => {
-  test("devrait enlever les <p> autour des images", () => {
-    const tree: Root = {
-      type: "root",
-      children: [
-        {
-          type: "element",
-          tagName: "p",
-          properties: {},
-          children: [
-            {
-              type: "element",
-              tagName: "img",
-              properties: { src: "image.jpg" },
-              children: [],
-            },
-          ],
-        },
-      ],
-    };
-
-    unwrapImages()(tree);
-
-    expect(tree.children).toHaveLength(1);
-    expect(tree.children[0]).toMatchObject({
-      type: "element",
-      tagName: "img",
+  test("devrait enlever les <p> autour des images", async () => {
+    const result = await markdownToHtml(`![Alt text](image.jpg)`, {
+      hastPlugins: [unwrapImages],
     });
+
+    expect(result.html).toContain('<img src="image.jpg" alt="Alt text">');
+    expect(result.html).not.toContain("<p>");
   });
 
-  test("devrait ne pas modifier les <p> contenant autre chose qu'une image", () => {
-    const tree: Root = {
-      type: "root",
-      children: [
-        {
-          type: "element",
-          tagName: "p",
-          properties: {},
-          children: [
-            {
-              type: "text",
-              value: "Hello, world!",
-            },
-          ],
-        },
-      ],
-    };
-
-    unwrapImages()(tree);
-
-    expect(tree.children).toHaveLength(1);
-    expect(tree.children[0]).toMatchObject({
-      type: "element",
-      tagName: "p",
+  test("ne modifie pas les <p> contenant du texte", async () => {
+    const result = await markdownToHtml("Hello, world!", {
+      hastPlugins: [unwrapImages],
     });
+
+    expect(result.html).toContain("<p>Hello, world!</p>");
   });
 });
