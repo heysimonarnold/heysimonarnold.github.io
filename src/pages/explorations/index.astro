@@ -1,0 +1,76 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import PageListing from "@/components/PageListing.astro";
+import type { PageListingItem } from "@/configs/pageListing";
+
+const items: PageListingItem[] = [
+  {
+    title: "Alter Ego",
+    url: "https://www.lexaloffle.com/bbs/?tid=47878",
+  },
+  {
+    title: "Battalgazi - Yeli",
+    slug: "battalgazi-yeli",
+  },
+  {
+    title: "Bullshitomètre",
+    slug: "bullshitometre",
+  },
+  {
+    title: "Caméra multiplane de Disney",
+    slug: "camera-multiplane-disney",
+  },
+  {
+    title: "Cassette Micro Mages",
+    slug: "cassette-micro-mages",
+  },
+  {
+    title: "Daft Pad",
+    url: "https://heysimonarnold.github.io/daft-pad/",
+  },
+  {
+    title: "Escape Jaws",
+    slug: "escape-jaws",
+  },
+  {
+    title: "Générateur de joueurs NHL94",
+    slug: "generateur-joueurs-nhl94",
+  },
+  {
+    title: "Live. Die. Repeat.",
+    url: "https://heysimonarnold.github.io/live-die-repeat/",
+  },
+  {
+    title: "Netflix",
+    slug: "netflix",
+  },
+  {
+    title: "Spécificité CSS",
+    url: "https://heysimonarnold.github.io/css-specificity/",
+  },
+  {
+    title: "Sorry Jax!",
+    slug: "sorry-jax",
+  },
+  {
+    title: "Unlock",
+    url: "https://heysimonarnold.github.io/unlock/",
+  },
+  {
+    title: "Vacances",
+    url: "https://heysimonarnold.github.io/vacances/",
+  },
+  {
+    title: "Winnie le caca",
+    url: "https://heysimonarnold.github.io/winnie-le-caca/",
+  },
+  {
+    title: "Zoltar speaks",
+    slug: "zoltar-speaks",
+  },
+];
+---
+
+<PageLayout title="Explorations" type="page">
+  <PageListing basePath="/explorations" items={items} />
+</PageLayout>
