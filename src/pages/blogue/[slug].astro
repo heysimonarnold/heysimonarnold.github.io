@@ -2,16 +2,17 @@
 // src/pages/blogue/[slug].astro
 import Wysiwyg from "@/components/Wysiwyg.astro";
 import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
+import { isPublished } from "@/utils/content/is-published";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const collection = await getCollection("blogue");
+  const collection = await getCollection("blogue", isPublished);
   return collection.map((entry) => ({
     params: { slug: entry.id },
   }));
 }
 
-const collection = await getCollection("blogue");
+const collection = await getCollection("blogue", isPublished);
 const slug = Astro.params.slug;
 const entry = collection.find((e) => e.id === slug);
 

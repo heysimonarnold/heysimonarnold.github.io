@@ -2,13 +2,14 @@
 import PageListing from "@/components/PageListing.astro";
 import Wysiwyg from "@/components/Wysiwyg.astro";
 import PageLayout from "@/layouts/PageLayout.astro";
+import { isPublished } from "@/utils/content/is-published";
 
 import { getCollection, getEntry, render } from "astro:content";
 
 const entry = await getEntry("autres", "accueil");
 
 // Fetch collection
-const entries = await getCollection("blogue");
+const entries = await getCollection("blogue", isPublished);
 
 if (!entry)
   throw new Error("Le fichier src/content/accueil.mdx n'a pas été trouvé");

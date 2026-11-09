@@ -1,45 +1,37 @@
-# Blogue de Simo Arnold
+# Blogue de Simon Arnold
+
+Site personnel construit avec Astro. Les pages sont générées statiquement et publiées sur GitHub Pages.
+
+## Prérequis
+
+- Node.js 22.23.3, indiqué dans `.nvmrc`
+- npm
+
+Depuis la racine du dépôt :
 
 ```sh
-npm create astro@latest -- --template minimal
+nvm use
+npm ci
 ```
 
-## 🚀 Project Structure
+## Commandes
 
-Inside of your Astro project, you'll see the following folders and files:
+| Commande            | Description                                          |
+| ------------------- | ---------------------------------------------------- |
+| `npm run dev`       | Démarre le serveur local sur `http://localhost:4321` |
+| `npm run check`     | Vérifie les composants Astro et les types TypeScript |
+| `npm test -- --run` | Exécute les tests Vitest une fois                    |
+| `npm run build`     | Génère le site dans `dist/`                          |
+| `npm run preview`   | Sert localement le dernier build                     |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Contenu
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Les collections se trouvent dans `src/content/` : `blogue/`, `recettes/` et `autres/`. Leurs schémas et champs requis sont définis dans `src/content.config.ts`. Les billets de blogue doivent notamment fournir `dateCreated`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Les entrées avec `draft: true` sont exclues des listes et des routes publiques. Les images et autres fichiers publics se trouvent dans `public/`; les médias associés aux billets sont organisés sous `public/blogue/`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Le traitement Markdown/MDX est configuré dans `astro.config.mjs`, avec des plugins pour les fractions, les listes de contrôle et les images.
 
-## 🧞 Commands
+## Publication
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Tests
-
-Si les tets ne fonctionnent pas au lancement, utilisez la commande nvm use pour forcer le terminal à prendre la bonne version de node et ensuite reexecuter les tests.
+Un push sur `main` déclenche `.github/workflows/deploy.yml`. Le workflow lance `npm run check` et les tests, construit le site, puis le publie sur GitHub Pages. Il peut aussi être lancé manuellement depuis l’onglet Actions de GitHub.

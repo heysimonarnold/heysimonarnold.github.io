@@ -3,17 +3,18 @@
 import RecipeMetadata from "@/components/RecipeMetadata.astro";
 import Wysiwyg from "@/components/Wysiwyg.astro";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { isPublished } from "@/utils/content/is-published";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const collection = await getCollection("recettes");
+  const collection = await getCollection("recettes", isPublished);
 
   return collection.map((entry) => ({
     params: { slug: entry.id },
   }));
 }
 
-const collection = await getCollection("recettes");
+const collection = await getCollection("recettes", isPublished);
 const slug = Astro.params.slug;
 const entry = collection.find((e) => e.id === slug);
 

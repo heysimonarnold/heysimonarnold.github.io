@@ -2,9 +2,10 @@
 import PageListing from "@/components/PageListing.astro";
 import type { PageListingItem } from "@/configs/pageListing";
 import PageLayout from "@/layouts/PageLayout.astro";
+import { isPublished } from "@/utils/content/is-published";
 import { getCollection } from "astro:content";
 
-const collection = await getCollection("blogue");
+const collection = await getCollection("blogue", isPublished);
 
 // Optional: filter by top-level (no `/` in slug) if you want folder separation
 const topLevelEntries = collection.filter((e) => !e.id.includes("/"));
