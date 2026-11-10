@@ -2,73 +2,13 @@
 import PageLayout from "@/layouts/PageLayout.astro";
 import PageListing from "@/components/PageListing.astro";
 import type { PageListingItem } from "@/configs/pageListing";
+import { getCollection } from "astro:content";
 
-const items: PageListingItem[] = [
-  {
-    title: "Alter Ego",
-    url: "https://www.lexaloffle.com/bbs/?tid=47878",
-  },
-  {
-    title: "Battalgazi - Yeli",
-    url: "https://heysimonarnold.github.io/battalgazi-yeli/",
-  },
-  {
-    title: "Bullshitomètre",
-    url: "https://heysimonarnold.github.io/bullshitometre/",
-  },
-  {
-    title: "Caméra multiplane de Disney",
-    url: "https://heysimonarnold.github.io/disney-camera-multiplane/",
-  },
-  {
-    title: "Cassette Micro Mages",
-    url: "https://heysimonarnold.github.io/cassette-micro-mages/",
-  },
-  {
-    title: "Daft Pad",
-    url: "https://heysimonarnold.github.io/daft-pad/",
-  },
-  {
-    title: "Escape Jaws",
-    url: "https://heysimonarnold.github.io/escape-jaws/",
-  },
-  {
-    title: "Générateur de joueurs NHL94",
-    url: "https://heysimonarnold.github.io/generateur-de-joueurs-nhl94/",
-  },
-  {
-    title: "Live. Die. Repeat.",
-    url: "https://heysimonarnold.github.io/live-die-repeat/",
-  },
-  {
-    title: "Netflix animation",
-    url: "https://heysimonarnold.github.io/netflix-animation/",
-  },
-  {
-    title: "Spécificité CSS",
-    url: "https://heysimonarnold.github.io/css-specificity/",
-  },
-  {
-    title: "Sorry Jax!",
-    url: "https://heysimonarnold.github.io/sorry-jax/",
-  },
-  {
-    title: "Unlock",
-    url: "https://heysimonarnold.github.io/unlock/",
-  },
-  {
-    title: "Vacances",
-    url: "https://heysimonarnold.github.io/vacances/",
-  },
-  {
-    title: "Winnie le caca",
-    url: "https://heysimonarnold.github.io/winnie-le-caca/",
-  },
-  {
-    title: "Zoltar speaks",
-    url: "https://heysimonarnold.github.io/zoltar-speaks/",
-  },
-];
+const collection = await getCollection("explorations");
+
+const items: PageListingItem[] = collection
+  .sort((a, b) => a.id.localeCompare(b.id))
+  .map(({ data }) => ({ title: data.title, url: data.url }));
 ---
 
 <PageLayout title="Explorations" type="page">

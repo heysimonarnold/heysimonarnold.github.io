@@ -49,8 +49,20 @@ const recettes = defineCollection({
   }),
 });
 
+const explorations = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/explorations",
+  }),
+  schema: z.object({
+    title: z.string(),
+    url: z.url(),
+  }),
+});
+
 export const collections = {
   autres,
   blogue,
+  explorations,
   recettes,
 };
